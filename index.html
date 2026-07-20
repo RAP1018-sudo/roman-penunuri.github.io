@@ -1,0 +1,2580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman Penunuri — Electrical Engineer</title>
+    <meta name="description" content="Roman Penunuri — EE student at the University of Houston specializing in Power Systems.">
+    <meta name="theme-color" content="#05080e">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- ✏️ EDIT: Replace G-XXXXXXXXXX with your actual GA4 Measurement ID from analytics.google.com -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VH8ZEXGBV6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VH8ZEXGBV6');
+    </script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --bg: #05080e; --bg2: #080c17; --card: #0d1224; --hover: #121b30; --deep: #161b2e;
+            --red: #ff2d55; --rglow: rgba(255,45,85,.22); --rdim: rgba(255,45,85,.1); --rbord: rgba(255,45,85,.3);
+            --blue: #3b82f6; --bglow: rgba(59,130,246,.22); --bdim: rgba(59,130,246,.1); --bbord: rgba(59,130,246,.3);
+            --white: #f0f6fc; --g1: #c9d1d9; --g2: #9ca3af; --g3: #6b7280; --g4: #4b5563;
+            --bdr: rgba(255,255,255,.08); --bdr2: rgba(255,255,255,.16);
+            --fd: 'Rajdhani', sans-serif; --fb: 'IBM Plex Sans', sans-serif; --fm: 'IBM Plex Mono', monospace;
+            --max: 1100px;
+        }
+        body { background:var(--bg); color:var(--white); font-family:var(--fb); line-height:1.6; overflow-x:hidden; }
+        body::before { content:''; position:fixed; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px); background-size:28px 28px; }
+        .wrap { max-width:var(--max); margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
+
+        /* ── NAV ── */
+        nav { position:fixed; top:0; left:0; right:0; z-index:200; padding:1.1rem 0; backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); background:rgba(5,8,14,.82); border-bottom:1px solid var(--bdr); }
+        nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+        .nlogo { font-family:var(--fd); font-weight:700; font-size:1.15rem; letter-spacing:.06em; color:var(--white); text-decoration:none; }
+        .nlogo .r { color:var(--red); } .nlogo .b { color:var(--blue); }
+        .nlinks { display:flex; align-items:center; gap:1.75rem; list-style:none; }
+        .nlinks a { color:var(--g2); text-decoration:none; font-family:var(--fm); font-size:.78rem; letter-spacing:.06em; transition:color .2s; position:relative; padding-bottom:3px; }
+        .nlinks a::after { content:''; position:absolute; bottom:0; left:0; right:0; height:1.5px; background:var(--blue); transform:scaleX(0); transition:transform .25s; }
+        .nlinks a:hover { color:var(--white); }
+        .nlinks a:hover::after { transform:scaleX(1); }
+        .nlinks a.active { color:var(--white); font-weight:600; }
+        .nlinks a.active::after { transform:scaleX(1); }
+        .ncta { color:var(--blue)!important; border:1px solid var(--bbord); background:var(--bdim); padding:.35rem 1rem; border-radius:4px; }
+        .ncta::after { display:none!important; }
+        .ncta:hover,.ncta.active { background:var(--bglow)!important; border-color:var(--blue)!important; color:var(--blue)!important; font-weight:600; }
+
+        /* ── HERO ── */
+        .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:9rem 0 6rem; position:relative; overflow:hidden; }
+        .gr { position:absolute; top:10%; left:-10%; width:640px; height:640px; background:radial-gradient(circle,rgba(255,45,85,.07) 0%,transparent 65%); pointer-events:none; }
+        .gb { position:absolute; top:28%; right:-8%; width:540px; height:540px; background:radial-gradient(circle,rgba(59,130,246,.09) 0%,transparent 65%); pointer-events:none; }
+        .hstatus-block { margin-bottom:2rem; }
+        .hstatus-now { display:inline-flex; align-items:center; gap:.65rem; font-family:var(--fm); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--g2); margin-bottom:.4rem; }
+        .sdot-red { width:8px; height:8px; border-radius:50%; flex-shrink:0; background:var(--red); box-shadow:0 0 10px var(--red); animation:blink-r 2.4s ease-in-out infinite; }
+        @keyframes blink-r { 0%,100%{opacity:1;box-shadow:0 0 10px var(--red);} 50%{opacity:.5;box-shadow:0 0 4px var(--red);} }
+        .hstatus-avail { display:flex; align-items:center; gap:.55rem; font-family:var(--fm); font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--g3); padding-left:1.35rem; }
+        .avail-dot { width:5px; height:5px; border-radius:50%; background:var(--g3); flex-shrink:0; }
+        .hname { font-family:var(--fd); font-weight:700; line-height:.88; letter-spacing:-.01em; margin-bottom:1.75rem; }
+        .hname .l1 { display:block; font-size:clamp(4.5rem,10.5vw,9.5rem); color:var(--white); }
+        .hname .l2 { display:block; font-size:clamp(4.5rem,10.5vw,9.5rem); background:linear-gradient(105deg,var(--red) 0%,#c084fc 45%,var(--blue) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .htag { display:flex; align-items:center; gap:.9rem; font-family:var(--fm); font-size:.85rem; color:var(--g2); letter-spacing:.06em; margin-bottom:1.25rem; }
+        .htag .bar { width:32px; height:1px; background:var(--g4); }
+        .hbio { max-width:560px; color:var(--g1); font-size:.98rem; font-weight:300; line-height:1.8; margin-bottom:1.75rem; }
+        .hcred-groups { display:flex; flex-direction:column; gap:1rem; margin-bottom:2.25rem; }
+        .hcred-group-row { display:flex; align-items:baseline; gap:.75rem; flex-wrap:wrap; }
+        .hcred-group-lbl { font-family:var(--fm); font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--g3); white-space:nowrap; min-width:90px; }
+        .hcred-chips { display:flex; flex-wrap:wrap; gap:.45rem; }
+        .hcred { display:flex; flex-direction:column; background:var(--card); border:1px solid var(--bdr); border-radius:8px; padding:.5rem .85rem; transition:border-color .2s; }
+        .hcred:hover { border-color:var(--bdr2); }
+        .hcred-val { font-family:var(--fd); font-weight:700; font-size:1rem; color:var(--white); line-height:1.1; }
+        .hcred-val.vr { color:var(--red); } .hcred-val.vb { color:var(--blue); }
+        .hcred-lbl { font-family:var(--fm); font-size:.57rem; color:var(--g3); letter-spacing:.1em; text-transform:uppercase; margin-top:.1rem; }
+        .hacts { display:flex; gap:.9rem; flex-wrap:wrap; }
+
+        /* ── BUTTONS ── */
+        .btn { display:inline-flex; align-items:center; gap:.45rem; padding:.7rem 1.6rem; font-family:var(--fm); font-size:.8rem; letter-spacing:.06em; border-radius:5px; text-decoration:none; border:1px solid transparent; transition:all .22s; cursor:pointer; }
+        .btn-blue { background:var(--blue); color:#fff; border-color:var(--blue); }
+        .btn-blue:hover { background:#2563eb; box-shadow:0 6px 28px rgba(59,130,246,.35); transform:translateY(-2px); }
+        .btn-out { background:transparent; color:var(--g1); border-color:var(--bdr2); }
+        .btn-out:hover { color:var(--white); border-color:rgba(255,255,255,.3); background:rgba(255,255,255,.04); }
+        .btn-rdim { background:var(--rdim); color:var(--red); border-color:var(--rbord); }
+        .btn-sm { font-size:.72rem; padding:.35rem .85rem; border-radius:4px; }
+        .btn-dim { opacity:.45; cursor:default; pointer-events:none; }
+
+        /* ── SECTIONS ── */
+        section { position:relative; z-index:1; }
+        .si { padding:5.5rem 0; }
+        .slbl { font-family:var(--fm); font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:var(--g3); margin-bottom:.4rem; }
+        .slbl .b { color:var(--blue); } .slbl .r { color:var(--red); }
+        .stitle { font-family:var(--fd); font-weight:700; font-size:clamp(1.9rem,3.5vw,2.7rem); color:var(--white); margin-bottom:2.75rem; }
+        .divider { height:1px; background:linear-gradient(90deg,transparent,var(--bdr2) 30%,var(--bdr2) 70%,transparent); }
+
+        /* ── SKILL TAGS ── */
+        .skill-section { margin-top:1rem; }
+        .skill-section-lbl { font-family:var(--fm); font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--g3); margin-bottom:.45rem; }
+        .trow { display:flex; flex-wrap:wrap; gap:.4rem; }
+        .tag { font-family:var(--fm); font-size:.62rem; padding:.2rem .55rem; border-radius:3px; letter-spacing:.05em; }
+        .tb  { background:var(--bdim);  color:#93c5fd; border:1px solid var(--bbord); }
+        .tr  { background:var(--rdim);  color:#fca5a5; border:1px solid var(--rbord); }
+        .tg  { background:rgba(255,255,255,.04); color:var(--g2); border:1px solid var(--bdr); }
+        .tgr { background:rgba(34,197,94,.08);   color:#86efac; border:1px solid rgba(34,197,94,.25); }
+        .tp  { background:rgba(167,139,250,.08);  color:#c4b5fd; border:1px solid rgba(167,139,250,.25); }
+        .ta  { background:rgba(251,191,36,.08);   color:#fcd34d; border:1px solid rgba(251,191,36,.25); }
+
+        /* ── PROJECTS ── */
+        #projects { background:var(--bg2); }
+        .feat { background:var(--card); border:1px solid var(--bdr); border-radius:14px; overflow:hidden; margin-bottom:1.5rem; transition:border-color .3s; }
+        .feat:hover { border-color:var(--bbord); }
+        .feat-top { display:grid; grid-template-columns:1fr 1.15fr; }
+        .fbody { padding:2.25rem 2rem; display:flex; flex-direction:column; justify-content:center; }
+        .feye { font-family:var(--fm); font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--blue); margin-bottom:.45rem; }
+        .ftitle { font-family:var(--fd); font-weight:700; font-size:2.5rem; color:var(--white); letter-spacing:.03em; line-height:1; margin-bottom:.3rem; }
+        .fsub { font-family:var(--fm); font-size:.67rem; color:var(--g3); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.9rem; }
+        .fdesc { color:var(--g1); font-size:.9rem; font-weight:300; line-height:1.7; margin-bottom:1.1rem; }
+        .flinks { display:flex; gap:.65rem; flex-wrap:wrap; margin-top:1.25rem; }
+        .store-badge { display:inline-flex; align-items:center; gap:.6rem; background:#0d1224; border:1px solid var(--bdr); border-radius:8px; padding:.5rem .9rem; text-decoration:none; transition:border-color .2s,background .2s; cursor:pointer; }
+        .store-badge:hover { border-color:var(--bdr2); background:var(--hover); }
+        .store-badge.badge-dim { opacity:.5; cursor:default; pointer-events:none; }
+        .store-badge svg { width:22px; height:22px; flex-shrink:0; }
+        .store-badge-text { display:flex; flex-direction:column; line-height:1.15; }
+        .store-badge-sub { font-family:var(--fb); font-size:.6rem; color:var(--g3); letter-spacing:.03em; }
+        .store-badge-main { font-family:var(--fb); font-weight:600; font-size:.86rem; color:var(--white); }
+        .substack-embed-wrap { max-width:480px; margin:0 auto; border-radius:10px; overflow:hidden; border:1px solid var(--bdr); }
+        .substack-embed-wrap iframe { display:block; width:100%; }
+
+        /* PANTRi carousel */
+        .pantri-carousel-wrap { position:relative; background:linear-gradient(145deg,#07111f 0%,#0b1a2e 100%); overflow:hidden; }
+        .pantri-carousel-wrap::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 20%,rgba(59,130,246,.14) 0%,transparent 60%); pointer-events:none; z-index:0; }
+        .pantri-carousel-wrap::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,#07111f 0%,transparent 18%,transparent 82%,#0b1a2e 100%); pointer-events:none; z-index:2; }
+        .pantri-carousel { display:flex; gap:1rem; overflow-x:auto; scrollbar-width:none; padding:1.5rem 2.5rem 0; position:relative; z-index:1; scroll-behavior:smooth; }
+        .pantri-carousel::-webkit-scrollbar { display:none; }
+        .ph-slide { flex-shrink:0; width:175px; cursor:pointer; transition:transform .25s,box-shadow .25s; }
+        .ph-slide:hover { transform:translateY(-8px); }
+        .ph-slide img { display:block; width:100%; height:330px; object-fit:cover; object-position:top; border-radius:16px 16px 0 0; border:1.5px solid rgba(255,255,255,.14); box-shadow:0 -14px 40px rgba(0,0,0,.7); }
+        .phx { width:175px; height:330px; background:var(--deep); display:flex; align-items:center; justify-content:center; font-family:var(--fm); font-size:.65rem; color:var(--g3); border-radius:16px 16px 0 0; border:1.5px solid rgba(255,255,255,.08); }
+        .car-btn { position:absolute; top:44%; transform:translateY(-50%); z-index:10; width:38px; height:38px; border-radius:50%; background:rgba(10,16,30,.85); border:1px solid rgba(255,255,255,.25); color:var(--white); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.5rem; line-height:1; transition:background .2s,transform .2s; padding:0; }
+        .car-btn:hover { background:rgba(59,130,246,.35); border-color:var(--blue); transform:translateY(-50%) scale(1.08); }
+        .car-left { left:.6rem; } .car-right { right:.6rem; }
+        .car-dots { display:flex; justify-content:center; gap:.4rem; padding:.75rem 0 .5rem; position:relative; z-index:1; }
+        .car-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.2); transition:background .2s,transform .2s; cursor:pointer; }
+        .car-dot.active { background:var(--blue); transform:scale(1.3); }
+
+        /* Image lightbox */
+        .img-modal { position:fixed; inset:0; z-index:999; background:rgba(0,0,0,.93); display:none; align-items:center; justify-content:center; cursor:zoom-out; }
+        .img-modal.open { display:flex; }
+        .img-modal-inner { position:relative; max-width:92vw; max-height:92vh; cursor:default; }
+        .img-modal-inner img { display:block; max-width:92vw; max-height:88vh; object-fit:contain; border-radius:8px; box-shadow:0 0 80px rgba(0,0,0,.9); }
+        .img-modal-close { position:fixed; top:1rem; right:1rem; background:rgba(10,14,24,.85); border:1px solid var(--bdr2); color:var(--white); font-size:1.25rem; cursor:pointer; line-height:1; padding:.5rem .65rem; border-radius:8px; transition:background .2s,color .2s; z-index:1000; min-width:44px; min-height:44px; display:flex; align-items:center; justify-content:center; }
+        .img-modal-close:hover { background:rgba(30,40,60,.95); color:var(--white); }
+        .clickable-img { cursor:zoom-in; transition:opacity .2s; }
+        .clickable-img:hover { opacity:.88; }
+
+        /* Org modal */
+        .org-modal { position:fixed; inset:0; z-index:998; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; cursor:pointer; }
+        .org-modal.open { display:flex; }
+        .org-modal-inner { background:var(--card); border:1px solid var(--bdr2); border-radius:16px; padding:2.5rem; max-width:460px; width:90vw; cursor:default; position:relative; text-align:center; }
+        .org-modal-close { position:absolute; top:1rem; right:1rem; background:none; border:none; color:var(--g2); font-size:1.3rem; cursor:pointer; line-height:1; transition:color .2s; }
+        .org-modal-close:hover { color:var(--white); }
+        .org-modal-logo { width:100px; height:100px; object-fit:contain; margin:0 auto 1.25rem; display:block; }
+        .org-modal-logo-ph { width:100px; height:100px; border-radius:50%; background:var(--deep); display:flex; align-items:center; justify-content:center; font-family:var(--fd); font-weight:700; font-size:1.6rem; color:var(--g2); margin:0 auto 1.25rem; }
+        .org-modal-name { font-family:var(--fd); font-weight:700; font-size:1.5rem; color:var(--white); margin-bottom:.25rem; }
+        .org-modal-sub { font-family:var(--fm); font-size:.68rem; color:var(--blue); letter-spacing:.1em; text-transform:uppercase; margin-bottom:1.25rem; }
+        .org-modal-desc { color:var(--g1); font-size:.88rem; font-weight:300; line-height:1.75; margin-bottom:1.5rem; text-align:left; }
+        .org-modal-link { display:inline-flex; align-items:center; gap:.4rem; font-family:var(--fm); font-size:.75rem; color:var(--blue); border:1px solid var(--bbord); background:var(--bdim); padding:.4rem 1rem; border-radius:4px; text-decoration:none; transition:background .2s; }
+        .org-modal-link:hover { background:var(--bglow); }
+
+        /* Org 2x2 grid */
+        .orgstrip { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.75rem; }
+        .orgtile { display:flex; flex-direction:column; align-items:center; gap:.7rem; background:var(--card); border:1px solid var(--bdr); border-radius:12px; padding:1.5rem 1rem 1.25rem; transition:border-color .2s,transform .2s; cursor:pointer; }
+        .orgtile:hover { border-color:var(--blue); transform:translateY(-3px); }
+        .orgtile img { width:72px; height:72px; object-fit:contain; }
+        .orgph { width:72px; height:72px; border-radius:50%; background:var(--deep); display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-family:var(--fd); font-weight:700; color:var(--g2); }
+        .orgname { font-family:var(--fm); font-size:.7rem; color:var(--g2); letter-spacing:.07em; text-transform:uppercase; text-align:center; line-height:1.4; }
+
+        /* LED card */
+        .ledfeat { background:var(--card); border:1px solid var(--bdr); border-radius:14px; overflow:hidden; margin-bottom:1.5rem; display:grid; grid-template-columns:1fr 1.1fr; transition:border-color .3s; }
+        .ledfeat:hover { border-color:var(--rbord); }
+        .ledbody { padding:2.25rem 2rem; display:flex; flex-direction:column; justify-content:center; }
+        .ledmedia { background:var(--deep); display:flex; flex-direction:column; overflow:hidden; }
+        .ledmain { flex:1; overflow:hidden; position:relative; min-height:220px; cursor:pointer; }
+        .ledmain img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+        .ledfeat:hover .ledmain img { transform:scale(1.03); }
+        .ledthumbs { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--bdr); }
+        .ledthumb { aspect-ratio:4/3; overflow:hidden; position:relative; border-right:1px solid var(--bdr); cursor:pointer; }
+        .ledthumb:last-child { border-right:none; }
+        .ledthumb img { width:100%; height:100%; object-fit:cover; transition:transform .3s; }
+        .ledthumb:hover img { transform:scale(1.06); }
+        .iph { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.4rem; color:var(--g3); font-family:var(--fm); font-size:.6rem; text-align:center; padding:.75rem; }
+        .iph .ico { font-size:1.5rem; opacity:.4; }
+
+        /* Video — clickable thumbnail that opens modal */
+        .led-vid-thumb {
+            border-top:1px solid var(--bdr);
+            background:#04080f;
+            position:relative; cursor:pointer;
+            height:90px;
+            display:flex; align-items:center; justify-content:center;
+            overflow:hidden;
+            transition:background .2s;
+        }
+        .led-vid-thumb:hover { background:#07101e; }
+        .led-vid-thumb img.vid-poster { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.35; }
+        .vid-play-btn {
+            position:relative; z-index:1;
+            width:48px; height:48px; border-radius:50%;
+            background:rgba(255,255,255,.15);
+            border:2px solid rgba(255,255,255,.3);
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.1rem;
+            transition:background .2s, transform .2s;
+        }
+        .led-vid-thumb:hover .vid-play-btn { background:rgba(255,255,255,.25); transform:scale(1.08); }
+        .vid-thumb-lbl { position:absolute; bottom:.5rem; left:0; right:0; text-align:center; font-family:var(--fm); font-size:.6rem; color:rgba(255,255,255,.5); letter-spacing:.1em; text-transform:uppercase; }
+        .vid-no-file { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:.35rem; font-family:var(--fm); font-size:.65rem; color:var(--g3); letter-spacing:.1em; text-transform:uppercase; }
+
+        /* Video modal */
+        .vid-modal { position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; cursor:pointer; }
+        .vid-modal.open { display:flex; }
+        .vid-modal-inner { position:relative; max-width:90vw; max-height:90vh; cursor:default; }
+        .vid-modal video { display:block; max-width:90vw; max-height:85vh; border-radius:8px; box-shadow:0 0 60px rgba(0,0,0,.8); }
+        .vid-modal-close { position:fixed; top:1rem; right:1rem; background:rgba(10,14,24,.85); border:1px solid var(--bdr2); color:var(--white); font-size:1.25rem; cursor:pointer; line-height:1; padding:.5rem .65rem; border-radius:8px; transition:background .2s,color .2s; z-index:1001; min-width:44px; min-height:44px; display:flex; align-items:center; justify-content:center; }
+        .vid-modal-close:hover { background:rgba(30,40,60,.95); color:var(--white); }
+
+        /* Interactive demo modals */
+        .demo-modal { position:fixed; inset:0; z-index:1001; background:rgba(0,0,0,.92); display:none; align-items:flex-start; justify-content:center; cursor:pointer; padding:1.5rem 1rem; overflow-y:auto; }
+        .demo-modal.open { display:flex; }
+        .demo-inner { background:var(--card); border:1px solid var(--bdr2); border-radius:14px; max-width:820px; width:100%; cursor:default; padding:1.75rem; position:relative; margin:auto; }
+        .demo-close { position:absolute; top:1rem; right:1rem; background:none; border:none; color:var(--g2); font-size:1.3rem; cursor:pointer; line-height:1; transition:color .2s; z-index:10; }
+        .demo-close:hover { color:var(--white); }
+        .demo-title { font-family:var(--fd); font-weight:700; font-size:1.35rem; color:var(--white); margin-bottom:.2rem; }
+        .demo-sub { font-family:var(--fm); font-size:.62rem; color:var(--blue); letter-spacing:.12em; text-transform:uppercase; margin-bottom:1.1rem; }
+        .demo-ctrl-row { display:flex; flex-wrap:wrap; gap:.65rem 1.1rem; margin-bottom:1rem; background:var(--deep); border-radius:8px; padding:.9rem; align-items:flex-end; }
+        .demo-ctrl { display:flex; flex-direction:column; gap:.3rem; }
+        .demo-ctrl label { font-family:var(--fm); font-size:.6rem; color:var(--g3); letter-spacing:.1em; text-transform:uppercase; }
+        .demo-ctrl input, .demo-ctrl select { background:var(--bg2); border:1px solid var(--bdr2); border-radius:4px; color:var(--white); font-family:var(--fm); font-size:.78rem; padding:.3rem .55rem; }
+        .demo-ctrl input[type=range] { padding:0; width:130px; accent-color:var(--blue); cursor:pointer; }
+        .demo-ctrl input[type=number] { width:90px; }
+        .demo-ctrl input:focus, .demo-ctrl select:focus { outline:none; border-color:var(--blue); }
+        .dual-input-row { display:flex; align-items:center; gap:.4rem; width:100%; }
+        .dual-input-row input[type=range] { flex:1; min-width:60px; padding:0; accent-color:var(--blue); cursor:pointer; height:4px; }
+        .dual-input-row input[type=number] { width:68px; }
+        .dual-input-row input[type=text] { width:88px; }
+        .unit-lbl { color:var(--g3); font-size:.7rem; font-family:var(--fm); flex-shrink:0; }
+        .demo-canvas-box { background:var(--deep); border-radius:8px; margin-bottom:.85rem; display:flex; justify-content:center; overflow:hidden; }
+        .demo-canvas-box canvas { max-width:100%; display:block; }
+        .demo-kv-row { display:flex; flex-wrap:wrap; gap:.5rem 1.25rem; font-family:var(--fm); font-size:.72rem; background:var(--deep); border-radius:8px; padding:.65rem 1rem; }
+        .demo-kv { display:flex; flex-direction:column; gap:.1rem; min-width:100px; }
+        .demo-k { color:var(--g3); font-size:.58rem; text-transform:uppercase; letter-spacing:.1em; }
+        .demo-v { color:var(--white); font-weight:600; word-break:break-all; }
+        .demo-side-panel { font-family:var(--fm); font-size:.72rem; background:var(--deep); border-radius:8px; padding:.75rem 1rem; display:flex; flex-direction:column; gap:.55rem; }
+        .demo-note { font-family:var(--fm); font-size:.6rem; color:var(--g3); line-height:1.6; margin-top:.75rem; }
+
+        /* Small project cards */
+        .pgrid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+        .pgrid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+        .pcard { background:var(--card); border:1px solid var(--bdr); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; transition:border-color .3s,transform .3s; }
+        .pcard:hover { transform:translateY(-4px); }
+        .pcard.bh:hover { border-color:var(--bbord); }
+        .pcard.rh:hover { border-color:var(--rbord); }
+        .pbar { height:2px; }
+        .bar-g { background:linear-gradient(90deg,var(--g4),transparent); }
+        .bar-b { background:linear-gradient(90deg,var(--blue),transparent); }
+        .bar-r { background:linear-gradient(90deg,var(--red),transparent); }
+        .pmedia { width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--deep); position:relative; }
+        .pmedia img { width:100%; height:100%; object-fit:cover; object-position:top; transition:transform .4s; }
+        .pcard:hover .pmedia img { transform:scale(1.04); }
+        .pbody { padding:1.25rem; flex:1; display:flex; flex-direction:column; }
+        .ptitle { font-family:var(--fd); font-weight:700; font-size:1.25rem; color:var(--white); margin-bottom:.2rem; }
+        .pperiod { font-family:var(--fm); font-size:.62rem; color:var(--g3); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.65rem; }
+        .pdesc { color:var(--g1); font-size:.84rem; font-weight:300; line-height:1.65; flex:1; margin-bottom:.75rem; }
+
+        /* Project meta info row */
+        .pmeta { font-family:var(--fm); font-size:.68rem; color:var(--g3); margin-top:.75rem; display:flex; flex-wrap:wrap; gap:.4rem 1rem; }
+        .pmeta-item { display:flex; align-items:center; gap:.3rem; }
+        .pmeta-item::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--g4); flex-shrink:0; }
+
+        /* ── EXPERIENCE ── */
+        #experience { background:var(--bg); }
+        .exp-timeline { position:relative; padding-left:1.5rem; }
+        .exp-timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--blue),var(--red),transparent); opacity:.3; }
+        .expi { position:relative; padding:0 0 3rem 2.5rem; }
+        .expi:last-child { padding-bottom:0; }
+        .exp-node { position:absolute; left:-1.5rem; top:.25rem; width:12px; height:12px; border-radius:50%; border:2px solid; background:var(--bg); }
+        .node-blue { border-color:var(--blue); box-shadow:0 0 8px rgba(59,130,246,.4); }
+        .node-grey { border-color:var(--g3); }
+        .exp-header { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:.5rem; }
+        .expco { font-family:var(--fd); font-weight:700; font-size:1.4rem; color:var(--white); line-height:1; }
+        .exp-right { display:flex; flex-direction:column; align-items:flex-end; gap:.3rem; }
+        .expper { font-family:var(--fm); font-size:.72rem; color:var(--g3); letter-spacing:.06em; }
+        .exploc { font-family:var(--fm); font-size:.68rem; color:var(--g3); letter-spacing:.06em; }
+        .expbadge { display:inline-flex; align-items:center; gap:.35rem; font-family:var(--fm); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; padding:.15rem .55rem; border-radius:3px; }
+        .bup  { background:rgba(251,191,36,.1);  color:#fcd34d; border:1px solid rgba(251,191,36,.28); }
+        .bdn  { background:rgba(34,197,94,.08);  color:#86efac; border:1px solid rgba(34,197,94,.25); }
+        .bpt  { background:rgba(255,255,255,.05); color:var(--g2); border:1px solid var(--bdr); }
+        .binp { background:var(--bdim); color:#93c5fd; border:1px solid var(--bbord); }
+        .binp .inp-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:#3b82f6; box-shadow:0 0 6px #3b82f6; animation:blink-b 2s ease-in-out infinite; vertical-align:middle; margin-right:.3rem; }
+        @keyframes blink-b { 0%,100%{opacity:1;box-shadow:0 0 6px #3b82f6;} 50%{opacity:.4;box-shadow:0 0 2px #3b82f6;} }
+        .expro { font-size:.9rem; color:var(--g2); font-weight:400; margin-bottom:.85rem; }
+        .exp-story { color:var(--g1); font-size:.9rem; font-weight:300; line-height:1.75; margin-bottom:.85rem; }
+        .exp-story strong { color:var(--white); font-weight:500; }
+        .exp-highlights { display:flex; flex-wrap:wrap; gap:.45rem; }
+
+        /* ── ABOUT ── */
+        #about { background:var(--bg2); }
+        .abgrid { display:grid; grid-template-columns:1fr 1fr; gap:4.5rem; align-items:start; }
+
+        /* Headshot */
+        .headshot-wrap { margin-bottom:1.5rem; }
+        .headshot { width:110px; height:110px; border-radius:50%; object-fit:cover; border:2px solid var(--bdr2); display:block; }
+        .headshot-ph { width:110px; height:110px; border-radius:50%; background:var(--card); border:2px dashed var(--bdr2); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--fm); font-size:.58rem; color:var(--g3); text-align:center; line-height:1.5; padding:.5rem; gap:.3rem; }
+        .headshot-ph .hs-ico { font-size:1.5rem; opacity:.4; }
+
+        .edublk { display:flex; align-items:center; gap:1rem; background:var(--card); border:1px solid var(--bdr); border-radius:10px; padding:1rem 1.25rem; margin-bottom:1.5rem; }
+        .eduimg { width:72px; height:72px; border-radius:8px; object-fit:contain; background:var(--deep); flex-shrink:0; padding:4px; }
+        .eduph { width:72px; height:72px; border-radius:8px; background:var(--rdim); border:1px solid var(--rbord); display:flex; align-items:center; justify-content:center; font-family:var(--fd); font-weight:700; font-size:1.1rem; color:var(--red); flex-shrink:0; }
+        .edutxt .esc { font-family:var(--fd); font-weight:700; font-size:1.05rem; color:var(--white); }
+        .edutxt .ecl { font-size:.82rem; color:var(--g2); font-weight:300; }
+        .edutxt .edg { font-family:var(--fm); font-size:.68rem; color:var(--g3); letter-spacing:.06em; margin-top:.15rem; }
+        .abtext p { color:var(--g1); font-weight:300; font-size:.93rem; line-height:1.82; margin-bottom:1rem; }
+        .abtext p:last-child { margin-bottom:0; }
+        .hw { color:var(--white); font-weight:500; }
+        .hr { color:#fca5a5; font-weight:500; }
+        .hb { color:#93c5fd; font-weight:500; }
+        .statgrid { display:grid; grid-template-columns:1fr 1fr; gap:.9rem; margin-bottom:2rem; }
+        .statcard { background:var(--card); border:1px solid var(--bdr); border-radius:10px; padding:1.2rem 1.1rem; }
+        .statval { font-family:var(--fd); font-weight:700; font-size:1.9rem; line-height:1; margin-bottom:.2rem; }
+        .vw{color:var(--white);} .vr{color:var(--red);} .vb{color:var(--blue);}
+        .statlbl { font-family:var(--fm); font-size:.65rem; color:var(--g3); letter-spacing:.12em; text-transform:uppercase; }
+        .orgstrip { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.75rem; }
+        .orgtile { display:flex; flex-direction:column; align-items:center; gap:.7rem; background:var(--card); border:1px solid var(--bdr); border-radius:12px; padding:1.5rem 1rem 1.25rem; transition:border-color .2s,transform .2s; cursor:pointer; }
+        .orgtile:hover { border-color:var(--blue); transform:translateY(-3px); }
+        .orgtile img { width:80px; height:80px; object-fit:contain; }
+        .orgph { width:80px; height:80px; border-radius:50%; background:var(--deep); display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-family:var(--fd); font-weight:700; color:var(--g2); }
+        .orgname { font-family:var(--fm); font-size:.7rem; color:var(--g2); letter-spacing:.06em; text-transform:uppercase; text-align:center; line-height:1.4; }
+        .sidelbl { font-family:var(--fm); font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--g3); margin-bottom:.65rem; padding-bottom:.4rem; border-bottom:1px solid var(--bdr); }
+        .certitem { display:flex; align-items:center; gap:.65rem; font-size:.86rem; color:var(--g1); font-weight:300; margin-bottom:.45rem; }
+        .cico { color:var(--red); font-size:.9rem; }
+
+        /* ── SKILLS ── */
+        #skills { background:var(--bg); }
+        .skillgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem; }
+        .sklbl { font-family:var(--fm); font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--g3); margin-bottom:.9rem; padding-bottom:.45rem; border-bottom:1px solid var(--bdr); }
+        .pills { display:flex; flex-wrap:wrap; gap:.45rem; }
+        .pill { font-family:var(--fm); font-size:.73rem; padding:.28rem .7rem; border-radius:4px; background:var(--card); border:1px solid var(--bdr); color:var(--g1); transition:border-color .2s,color .2s,background .2s; display:inline-flex; flex-direction:column; align-items:flex-start; line-height:1.4; }
+        .pill-src { font-family:var(--fb); font-size:.6rem; color:var(--g3); font-weight:400; letter-spacing:.01em; }
+        .pill:hover { border-color:var(--bdr2); color:var(--white); background:var(--hover); }
+
+        /* ── CONTACT ── */
+        #contact { background:var(--bg2); }
+        .cinner { padding:6rem 0 5rem; text-align:center; }
+        .ceye { font-family:var(--fm); font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:var(--g3); margin-bottom:.5rem; }
+        .ctitle { font-family:var(--fd); font-weight:700; font-size:clamp(2.2rem,4.5vw,3.5rem); margin-bottom:.75rem; }
+        .csub { color:var(--g2); font-weight:300; font-size:.93rem; max-width:400px; margin:0 auto 2.5rem; line-height:1.65; }
+        .crow { display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; }
+        /* Contact item with prefix label */
+        .clink-wrap { display:flex; flex-direction:column; align-items:center; gap:.3rem; }
+        .clink-prefix { font-family:var(--fm); font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:var(--g3); }
+
+        footer { border-top:1px solid var(--bdr); padding:1.5rem 0; }
+        footer .wrap { display:flex; align-items:center; justify-content:space-between; }
+        .flogo { font-family:var(--fd); font-weight:700; font-size:.95rem; letter-spacing:.05em; }
+        .fcopy { font-family:var(--fm); font-size:.65rem; color:var(--g3); }
+
+        .fu { opacity:0; transform:translateY(22px); transition:opacity .55s ease,transform .55s ease; }
+        .fu.vis { opacity:1; transform:translateY(0); }
+        .d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;}
+
+        @media(max-width:900px){
+            .feat-top{grid-template-columns:1fr;} .fphones{height:260px;}
+            .ledfeat{grid-template-columns:1fr;} .pgrid{grid-template-columns:1fr;} .pgrid-3{grid-template-columns:1fr 1fr;}
+            .abgrid{grid-template-columns:1fr;gap:2.5rem;}
+            .skillgrid{grid-template-columns:1fr 1fr;}
+            .exp-header{flex-direction:column;} .exp-right{align-items:flex-start;}
+            .hcred-group-row{flex-direction:column;gap:.5rem;} .hcred-group-lbl{min-width:unset;}
+        }
+        @media(max-width:640px){
+            .nlinks{display:none;}
+            .hname .l1,.hname .l2{font-size:clamp(3.5rem,14vw,5rem);}
+            .skillgrid{grid-template-columns:1fr;} .pgrid-3{grid-template-columns:1fr;}
+            footer .wrap{flex-direction:column;gap:.5rem;text-align:center;}
+        }
+
+        /* ── PAGED NAVIGATION (replaces continuous scroll) ── */
+        .divider { display:none; }
+        .page { display:none; }
+        .page.active { display:block; }
+        .hero.page.active { display:flex; }
+
+        .nav-toggle { display:none; background:none; border:none; color:var(--white); font-size:1.6rem; line-height:1; cursor:pointer; padding:.2rem .3rem; }
+        @media(max-width:640px){
+            .nav-toggle { display:block; }
+            .nlinks.mobile-open {
+                display:flex; flex-direction:column; align-items:flex-start; gap:0;
+                position:fixed; top:56px; left:0; right:0; z-index:199;
+                background:var(--bg2); border-bottom:1px solid var(--bdr);
+                padding:.5rem 2rem 1.25rem; max-height:calc(100vh - 56px); overflow-y:auto;
+            }
+            .nlinks.mobile-open li { width:100%; }
+            .nlinks.mobile-open a { display:block; padding:.85rem 0; font-size:.9rem; border-bottom:1px solid var(--bdr); }
+            .nlinks.mobile-open a::after { display:none; }
+        }
+
+        /* ── AI TIPS & TRICKS ── */
+        #ai-help { background:var(--bg); }
+        .ai-tip-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-bottom:.5rem; }
+        .ai-tip { background:var(--card); border:1px solid var(--bdr); border-radius:10px; padding:1.25rem; }
+        .ai-tip-title { font-family:var(--fb); font-weight:600; color:var(--white); font-size:.92rem; margin-bottom:.4rem; }
+        .ai-tip-text { color:var(--g2); font-size:.83rem; font-weight:300; line-height:1.6; }
+        .ai-section-label { font-family:var(--fm); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); margin:2.75rem 0 1.25rem; display:flex; align-items:center; gap:.5rem; }
+        .ai-section-label::before { content:''; width:18px; height:1.5px; background:var(--blue); display:inline-block; }
+        .ai-prompt-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.1rem; }
+        .ai-promptcard { background:var(--card); border:1px solid var(--bdr); border-radius:10px; padding:1.4rem; cursor:pointer; transition:border-color .2s,background .2s,transform .2s; }
+        .ai-promptcard:hover { border-color:var(--rbord); background:var(--hover); transform:translateY(-2px); }
+        .ai-promptcard-tag { font-family:var(--fm); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--red); margin-bottom:.5rem; display:inline-block; }
+        .ai-promptcard-title { font-family:var(--fb); font-weight:600; color:var(--white); font-size:1rem; margin-bottom:.5rem; }
+        .ai-promptcard-teaser { color:var(--g2); font-size:.83rem; font-weight:300; line-height:1.6; margin-bottom:.9rem; }
+        .ai-promptcard-cta { font-family:var(--fm); font-size:.72rem; color:var(--blue); }
+
+        .ai-modal { position:fixed; inset:0; z-index:998; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; cursor:pointer; padding:1.5rem; }
+        .ai-modal.open { display:flex; }
+        .ai-modal-inner { background:var(--card); border:1px solid var(--bdr2); border-radius:16px; padding:2.25rem; max-width:600px; width:100%; max-height:85vh; overflow-y:auto; cursor:default; position:relative; text-align:left; }
+        .ai-modal-close { position:absolute; top:1rem; right:1rem; background:none; border:none; color:var(--g2); font-size:1.3rem; cursor:pointer; line-height:1; transition:color .2s; }
+        .ai-modal-close:hover { color:var(--white); }
+        .ai-modal-tag { font-family:var(--fm); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--red); margin-bottom:.5rem; display:block; }
+        .ai-modal-title { font-family:var(--fd); font-weight:700; font-size:1.35rem; color:var(--white); margin-bottom:1rem; padding-right:1.5rem; }
+        .ai-modal-prompt { background:var(--deep); border:1px solid var(--bdr); border-radius:8px; padding:1rem; font-family:var(--fm); font-size:.78rem; color:var(--g1); line-height:1.7; white-space:pre-wrap; margin-bottom:1.1rem; }
+        .ai-modal-explain { color:var(--g2); font-size:.85rem; font-weight:300; line-height:1.7; margin-bottom:1.25rem; }
+        .ai-modal-meta { border-top:1px solid var(--bdr); padding-top:.85rem; margin-bottom:.85rem; }
+        .ai-modal-meta-lbl { font-family:var(--fm); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--g3); margin-bottom:.35rem; }
+        .ai-modal-meta-text { color:var(--g2); font-size:.82rem; font-weight:300; line-height:1.6; margin:0; }
+        .ai-modal-copy { font-family:var(--fm); font-size:.75rem; color:var(--blue); border:1px solid var(--bbord); background:var(--bdim); padding:.5rem 1.1rem; border-radius:4px; cursor:pointer; transition:background .2s; }
+        .ai-modal-copy:hover { background:var(--bglow); }
+        .ai-modal-copy.copied { color:var(--g1); border-color:var(--bdr2); background:var(--deep); }
+    </style>
+</head>
+<body>
+
+<!-- Image lightbox modal -->
+<div class="img-modal" id="imgModal" onclick="closeImgModal(event)">
+    <div class="img-modal-inner">
+        <button class="img-modal-close" onclick="closeImgModal(event,true)">&#x2715;</button>
+        <img id="modalImgEl" src="" alt="">
+    </div>
+</div>
+
+<!-- Org info modal -->
+<div class="org-modal" id="orgModal" onclick="closeOrgModal(event)">
+    <div class="org-modal-inner">
+        <button class="org-modal-close" onclick="closeOrgModal(event,true)">&#x2715;</button>
+        <img id="orgModalImg" src="" alt="" class="org-modal-logo" onerror="this.style.display='none';document.getElementById('orgModalPh').style.display='flex'">
+        <div class="org-modal-logo-ph" id="orgModalPh" style="display:none"></div>
+        <div class="org-modal-name" id="orgModalName"></div>
+        <div class="org-modal-sub" id="orgModalSub"></div>
+        <p class="org-modal-desc" id="orgModalDesc"></p>
+        <a class="org-modal-link" id="orgModalLink" href="#" target="_blank" rel="noopener">Visit Website &#8599;</a>
+    </div>
+</div>
+
+<!-- AI Prompt detail modal -->
+<div class="ai-modal" id="aiPromptModal" onclick="closePromptModal(event)">
+    <div class="ai-modal-inner">
+        <button class="ai-modal-close" onclick="closePromptModal(event,true)">&#x2715;</button>
+        <span class="ai-modal-tag" id="aiModalTag"></span>
+        <div class="ai-modal-title" id="aiModalTitle"></div>
+        <div class="ai-modal-prompt" id="aiModalPrompt"></div>
+        <p class="ai-modal-explain" id="aiModalExplain"></p>
+        <div class="ai-modal-meta">
+            <div class="ai-modal-meta-lbl">Files to bring</div>
+            <p class="ai-modal-meta-text" id="aiModalFiles"></p>
+        </div>
+        <div class="ai-modal-meta">
+            <div class="ai-modal-meta-lbl">Best used as</div>
+            <p class="ai-modal-meta-text" id="aiModalWorksBest"></p>
+        </div>
+        <button class="ai-modal-copy" id="aiModalCopyBtn" onclick="copyPromptText()">Copy Prompt</button>
+    </div>
+</div>
+
+<!-- Video Modal -->
+<div class="vid-modal" id="vidModal" onclick="closeVidModal(event)">
+    <div class="vid-modal-inner">
+        <button class="vid-modal-close" onclick="closeVidModal(event,true)">&#x2715;</button>
+        <video id="modalVideo" controls>
+            <source src="img/led-demo.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<nav>
+    <div class="wrap">
+        <a href="#home" class="nlogo">RP<span class="r">.</span><span class="b">_</span></a>
+        <ul class="nlinks" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#ai-help">AI Tips &amp; Tricks</a></li>
+            <li><a href="#contact" class="ncta">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero page active" id="home">
+    <div class="gr"></div><div class="gb"></div>
+    <div class="wrap">
+        <div class="hstatus-block">
+            <div class="hstatus-now">
+                <span class="sdot-red"></span>
+                Not available for work &mdash; currently interning at Air Liquide (Summer 2026)
+            </div>
+            <div class="hstatus-avail">
+                <span class="avail-dot"></span>
+                Available for co-op &amp; internship &middot; Summer 2027
+            </div>
+        </div>
+
+        <h1 class="hname">
+            <span class="l1">ROMAN</span>
+            <span class="l2">PENUNURI</span>
+        </h1>
+
+<div class="htag"><span class="bar"></span>Electrical Engineering &middot; Power Systems &middot; University of Houston<span class="bar"></span></div>
+        
+        <!-- ✏️ EDIT: Update this bio to describe yourself -->
+        <p class="hbio">
+            I enjoy working on things that have real impact. I'm interested in power systems, electronics, and embedded hardware — 
+            fields where the work keeps infrastructure running and affects people directly. I've built experience across all of them: 
+            configuring industrial protective relays and working inside a live plant at Air Liquide, hands-on circuit design and 
+            ARM programming through coursework, and building a full-stack mobile app from scratch on my own time.
+        </p>
+
+        <div class="hcred-groups">
+            <div class="hcred-group-row">
+                <div class="hcred-group-lbl">Education</div>
+                <div class="hcred-chips">
+                    <div class="hcred"><div class="hcred-val">University of Houston</div><div class="hcred-lbl">Cullen College of Engineering</div></div>
+                    <div class="hcred"><div class="hcred-val">Power Systems</div><div class="hcred-lbl">Concentration</div></div>
+                    <div class="hcred"><div class="hcred-val vr">3.82</div><div class="hcred-lbl">GPA</div></div>
+                    <div class="hcred"><div class="hcred-val">December 2028</div><div class="hcred-lbl">Expected Grad</div></div>
+                    <div class="hcred"><div class="hcred-val">Accelerated B.S./M.S.</div><div class="hcred-lbl">UH Accelerated Masters Program</div></div>
+                </div>
+            </div>
+            <div class="hcred-group-row">
+                <div class="hcred-group-lbl">Certifications</div>
+                <div class="hcred-chips">
+                    <div class="hcred"><div class="hcred-val vb">OSHA-30</div><div class="hcred-lbl">General Industry</div></div>
+                    <div class="hcred"><div class="hcred-val vb">PLC Basics</div><div class="hcred-lbl">Automation Community</div></div>
+                    <div class="hcred"><div class="hcred-val vb">CBT 101: Introduction to Relays</div><div class="hcred-lbl">Schweitzer Engineering Laboratories &middot; 4 Professional Development Hours</div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section class="page" id="projects">
+    <div class="si"><div class="wrap">
+        <div class="slbl"><span class="b">//</span> PROJECTS</div>
+        <h2 class="stitle fu">What I've Built</h2>
+
+        <!-- PANTRi -->
+        <div class="feat fu">
+            <div class="feat-top">
+                <div class="fbody">
+                    <div class="feye">&#9733; Personal Project &middot; In Active Development</div>
+                    <div class="ftitle">PANTRi</div>
+                    <div class="fsub">Full-Stack Mobile App &middot; 2025&ndash;Present</div>
+                    <p class="fdesc">A smart pantry management app that tracks household inventory in real time, auto-generates shopping lists by time horizon, and surfaces spend and waste analytics per household member. Rebuilt the invite system after cascading database policy conflicts caused cross-user data isolation failures.</p>
+                    <div class="skill-section">
+                        <div class="skill-section-lbl">Skills &amp; Technologies</div>
+                        <div class="trow">
+                            <span class="tag tb">React Native</span>
+                            <span class="tag tb">Supabase</span>
+                            <span class="tag tb">PostgreSQL</span>
+                            <span class="tag tp">Stripe</span>
+                            <span class="tag tg">iOS &amp; Android</span>
+                            <span class="tag tgr">Database Architecture</span>
+                            <span class="tag tgr">User Auth &amp; Security</span>
+                        </div>
+                    </div>
+                    <div class="flinks">
+                        <a href="https://apps.apple.com/us/app/pantri-household-inventory/id6765601979" target="_blank" rel="noopener" class="store-badge">
+                            <svg viewBox="0 0 384 512" fill="#fff"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141 4 184.8 4 273.9c0 26.7 4.9 54.3 14.7 82.8 13.1 37.8 60.4 130.4 109.7 128.9 25.7-.6 43.8-18.2 77.2-18.2 32.4 0 49.1 18.2 77.7 18.2 49.7-.7 92.4-84.9 104.9-122.8-66.7-31.4-69.5-92.1-69.5-93.1zM255.9 65.9c27.7-33 25.2-63 24.4-73.9-24.5 1.4-52.9 16.9-69.2 35.9-17.9 20-28.4 44.8-26.1 72.6 26.5 2.1 50.7-11.4 70.9-34.6z"/></svg>
+                            <div class="store-badge-text">
+                                <span class="store-badge-sub">Download on the</span>
+                                <span class="store-badge-main">App Store</span>
+                            </div>
+                        </a>
+                        <span class="store-badge badge-dim" title="Coming Soon">
+                            <svg viewBox="0 0 512 512"><path fill="#00d9ff" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"/><path fill="#00f076" d="M47 0c-9.3 5.9-15 16.4-15 29.6v452.8c0 13.2 5.7 23.7 15 29.6l4.6 2.3L285.6 256 51.6-2.3 47 0z"/><path fill="#ffbc00" d="M405.6 214.7L325.3 234.3l-60.1-60.1 60.1-60.1 80.3 19.6c25.9 15 25.9 51.3 0 66.3z" transform="translate(0 41.3)"/><path fill="#ff3d00" d="M104.6 499L325.3 277.7l60.1 60.1L104.6 499z"/></svg>
+                            <div class="store-badge-text">
+                                <span class="store-badge-sub">Get it on</span>
+                                <span class="store-badge-main">Google Play &mdash; Coming Soon</span>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <div class="pantri-carousel-wrap">
+                    <button class="car-btn car-left" onclick="scrollCar(-1)" aria-label="Previous">&#8249;</button>
+                    <div class="pantri-carousel" id="pantriCar">
+                        <div class="ph-slide" onclick="openImg('img/pantri-spend.png')">
+                            <img src="img/pantri-spend.png" alt="Spend" onerror="this.outerHTML='&lt;div class=&quot;phx&quot;&gt;SPEND&lt;/div&gt;'">
+                        </div>
+                        <div class="ph-slide" onclick="openImg('img/pantri-list.png')">
+                            <img src="img/pantri-list.png" alt="List" onerror="this.outerHTML='&lt;div class=&quot;phx&quot;&gt;LIST&lt;/div&gt;'">
+                        </div>
+                        <div class="ph-slide" onclick="openImg('img/pantri-waste.png')">
+                            <img src="img/pantri-waste.png" alt="Waste" onerror="this.outerHTML='&lt;div class=&quot;phx&quot;&gt;WASTE&lt;/div&gt;'">
+                        </div>
+                        <div class="ph-slide" onclick="openImg('img/pantri-stock.png')">
+                            <img src="img/pantri-stock.png" alt="Stock" onerror="this.outerHTML='&lt;div class=&quot;phx&quot;&gt;STOCK&lt;/div&gt;'">
+                        </div>
+                        <div class="ph-slide" onclick="openImg('img/pantri-review.png')">
+                            <img src="img/pantri-review.png" alt="Review" onerror="this.outerHTML='&lt;div class=&quot;phx&quot;&gt;REVIEW&lt;/div&gt;'">
+                        </div>
+                        <div class="ph-slide" onclick="openImg('img/pantri-new-item.png')">
+                            <img src="img/pantri-new-item.png" alt="New Item" onerror="this.outerHTML='&lt;div class=&quot;phx&quot;&gt;NEW ITEM&lt;/div&gt;'">
+                        </div>
+                        <div class="ph-slide" onclick="openImg('img/pantri-settings.png')">
+                            <img src="img/pantri-settings.png" alt="Settings" onerror="this.outerHTML='&lt;div class=&quot;phx&quot;&gt;SETTINGS&lt;/div&gt;'">
+                        </div>
+                    </div>
+                    <button class="car-btn car-right" onclick="scrollCar(1)" aria-label="Next">&#8250;</button>
+                    <div class="car-dots" id="carDots"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LED Water Level Indicator -->
+        <div class="ledfeat fu d1">
+    <div class="ledbody">
+        <div class="feye" style="color:var(--red)">Electronics Course Project &middot; Fall 2025</div>
+        <div class="ftitle" style="font-size:1.9rem">LED Water Level Indicator</div>
+        <div class="fsub">5-Person Team &middot; UH &middot; ECE Electronics Lab</div>
+        <p class="fdesc" style="font-size:.88rem">Designed a 5-threshold analog water sensor using transistors as switches, diodes for isolation, 
+            and LED arrays for visual output with a buzzer at full capacity. 
+            Led circuit calculations and schematic simulation. Key finding: distilled water&rsquo;s high resistivity prevented transistor 
+            saturation &mdash; a discovery that shaped the final threshold design.</p>
+        <div class="skill-section">
+            <div class="skill-section-lbl">Skills Learned</div>
+            <div class="trow">
+                <span class="tag tr">Analog Circuit Design</span>
+                <span class="tag tr">Circuit Simulation</span>
+                <span class="tag tg">Schematic Design</span>
+                <span class="tag tg">Breadboard Prototyping</span>
+                <span class="tag tg">Technical Documentation</span>
+                <span class="tag tgr">Team Leadership</span>
+            </div>
+        </div>
+        <div class="pmeta" style="margin-top:.85rem;">
+            <span class="pmeta-item">5-person team</span>
+            <span class="pmeta-item">All 5 thresholds met accuracy spec</span>
+            <span class="pmeta-item">Buzzer triggered correctly at full</span>
+        </div>
+    </div>
+    <div class="ledmedia">
+        <!-- Schematic full-width landscape — contain so full circuit is visible -->
+        <div style="overflow:hidden;position:relative;height:270px;border-bottom:1px solid var(--bdr);background:#0a0e06;">
+            <img src="img/led-schematic.png" alt="Falstad schematic" class="clickable-img" onclick="openImg('img/led-schematic.png')" style="width:100%;height:100%;object-fit:contain;object-position:center;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="iph" style="display:none;height:100%;"><span class="ico">&#9889;</span><span>led-schematic.png</span></div>
+        </div>
+        <!-- Led-lit photo + video thumbnail side by side, portrait, fully visible -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;height:260px;">
+            <div style="overflow:hidden;position:relative;border-right:1px solid var(--bdr);">
+                <img src="img/led-lit.png" alt="Circuit in action" class="clickable-img" onclick="openImg('img/led-lit.png')" style="width:100%;height:100%;object-fit:contain;object-position:center;background:#0a0c12;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="iph" style="display:none;height:100%;"><span class="ico">&#128161;</span><span>led-lit.png</span></div>
+            </div>
+            <div class="led-vid-thumb" id="vidThumb" onclick="openVidModal()" style="height:100%;border-top:none;">
+                <img src="img/led-lit.png" alt="" class="vid-poster" onerror="this.style.display='none'">
+                <div class="vid-play-btn">&#9654;</div>
+                <div class="vid-thumb-lbl">Click to watch demo</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- MATLAB pair -->
+        <div class="pgrid">
+            <div class="pcard bh fu d2">
+                <div class="pbar bar-g"></div>
+                <div class="pmedia">
+                    <img src="img/matlab-games.png" alt="Family Game Night" class="clickable-img" onclick="openImg('img/matlab-games.png')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="iph" style="display:none"><span class="ico">&#127918;</span><span>Add img/matlab-games.png</span></div>
+                </div>
+                <div class="pbody">
+                    <div class="ptitle">Family Game Night App</div>
+                    <div class="pperiod">Apr &ndash; May 2024 &middot; UH &middot; Team Project</div>
+                    <p class="pdesc">Co-built a game suite in MATLAB App Designer. Personally implemented the Othello engine with full 8-direction move logic and a computer opponent, playable from a single home screen.</p>
+                    <div class="skill-section">
+                        <div class="skill-section-lbl">Skills Learned</div>
+                        <div class="trow">
+                            <span class="tag tg">MATLAB</span>
+                            <span class="tag tg">App Design</span>
+                            <span class="tag tg">Algorithm Design</span>
+                            <span class="tag tgr">Team Collaboration</span>
+                        </div>
+                    </div>
+                    <div class="pmeta">
+                        <span class="pmeta-item">UH course project</span>
+                        <span class="pmeta-item">4 playable games</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pcard bh fu d3">
+                <div class="pbar bar-g"></div>
+                <div class="pmedia">
+                    <img src="img/matlab-solar.png" alt="NAE Grand Challenge" class="clickable-img" onclick="openImg('img/matlab-solar.png')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="iph" style="display:none"><span class="ico">&#9728;</span><span>Add img/matlab-solar.png</span></div>
+                </div>
+                <div class="pbody">
+                    <div class="ptitle">NAE Grand Challenge App</div>
+                    <div class="pperiod">Mar &ndash; Apr 2024 &middot; UH &middot; Team Project</div>
+                    <p class="pdesc">Built an interactive MATLAB dashboard for solar energy education with continent-filtered storage charts, storage method comparisons, and a solar economics module.</p>
+                    <div class="skill-section">
+                        <div class="skill-section-lbl">Skills Learned</div>
+                        <div class="trow">
+                            <span class="tag tg">MATLAB</span>
+                            <span class="tag tg">Data Visualization</span>
+                            <span class="tag tgr">Renewable Energy</span>
+                            <span class="tag tgr">Team Collaboration</span>
+                        </div>
+                    </div>
+                    <div class="pmeta">
+                        <span class="pmeta-item">UH course project</span>
+                        <span class="pmeta-item">NAE Grand Challenge theme</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✏️ EDIT: ECE 3317 Applied EM Waves — MATLAB special problem calculators -->
+        <div class="slbl" style="margin-top:2.25rem;margin-bottom:1rem"><span class="b">//</span> ECE 3317 &mdash; Applied EM Waves &middot; MATLAB Calculators</div>
+        <div class="pgrid-3">
+
+            <!-- EM Wave Interface Visualizer -->
+            <div class="pcard bh fu d1">
+                <div class="pbar bar-b"></div>
+                <div class="pbody">
+                    <div class="ptitle">EM Wave Interface Visualizer</div>
+                    <div class="pperiod">Fall 2025 &middot; ECE 3317 &middot; Solo</div>
+                    <p class="pdesc">MATLAB tool plotting normalized E and H field magnitudes for obliquely incident plane waves across four interfaces: air&ndash;dielectric, dielectric&ndash;air, air&ndash;PEC, and air&ndash;lossy medium. Demonstrates Brewster angle, critical angle, evanescent fields, and skin effect.</p>
+                    <div class="skill-section">
+                        <div class="skill-section-lbl">Key Concepts</div>
+                        <div class="trow">
+                            <span class="tag tr">Fresnel Equations</span>
+                            <span class="tag tr">Evanescent Waves</span>
+                            <span class="tag tr">Oblique Incidence</span>
+                            <span class="tag tg">MATLAB</span>
+                        </div>
+                    </div>
+                    <div class="pmeta">
+                        <span class="pmeta-item">ECE 3317 Sp. Problem 2</span>
+                        <span class="pmeta-item">4 interface cases</span>
+                    </div>
+                    <button class="btn btn-blue btn-sm" style="margin-top:.9rem;align-self:flex-start" onclick="openEMWaveDemo()">&#9654; Try Demo</button>
+                </div>
+            </div>
+
+            <!-- Smith Chart & Impedance Calculator -->
+            <div class="pcard rh fu d2">
+                <div class="pbar bar-r"></div>
+                <div class="pbody">
+                    <div class="ptitle">Smith Chart Calculator</div>
+                    <div class="pperiod">Fall 2025 &middot; ECE 3317 &middot; Solo</div>
+                    <p class="pdesc">MATLAB transmission line calculator accepting load impedance, &Gamma;, or VSWR+phase as input. Computes reflection coefficient, VSWR, percent power, V<sub>max</sub>/V<sub>min</sub> positions, input impedance at any distance, and plots the Smith chart with VSWR circle and standing wave pattern.</p>
+                    <div class="skill-section">
+                        <div class="skill-section-lbl">Key Concepts</div>
+                        <div class="trow">
+                            <span class="tag tr">Transmission Lines</span>
+                            <span class="tag tr">Smith Chart</span>
+                            <span class="tag tr">Impedance Matching</span>
+                            <span class="tag tg">MATLAB</span>
+                        </div>
+                    </div>
+                    <div class="pmeta">
+                        <span class="pmeta-item">ECE 3317 Sp. Problem 3</span>
+                        <span class="pmeta-item">4 input modes</span>
+                    </div>
+                    <button class="btn btn-rdim btn-sm" style="margin-top:.9rem;align-self:flex-start" onclick="openSmithDemo()">&#9654; Try Demo</button>
+                </div>
+            </div>
+
+            <!-- Antenna Array Polar Plotter -->
+            <div class="pcard bh fu d3">
+                <div class="pbar bar-g"></div>
+                <div class="pbody">
+                    <div class="ptitle">Antenna Array Polar Plotter</div>
+                    <div class="pperiod">Fall 2025 &middot; ECE 3317 &middot; Solo</div>
+                    <p class="pdesc">MATLAB calculator generating array factor radiation patterns for uniform linear antenna arrays. Given element count, spacing (wavelengths), and progressive phase shift &psi;, plots the polar pattern in the &theta;&nbsp;=&nbsp;90&deg; plane, marks 3&thinsp;dB beamwidth, and outputs HPBW.</p>
+                    <div class="skill-section">
+                        <div class="skill-section-lbl">Key Concepts</div>
+                        <div class="trow">
+                            <span class="tag tr">Antenna Arrays</span>
+                            <span class="tag tr">Array Factor</span>
+                            <span class="tag tg">Polar Plots</span>
+                            <span class="tag tg">MATLAB</span>
+                        </div>
+                    </div>
+                    <div class="pmeta">
+                        <span class="pmeta-item">ECE 3317 Sp. Problem 4</span>
+                        <span class="pmeta-item">HPBW calculator</span>
+                    </div>
+                    <button class="btn btn-out btn-sm" style="margin-top:.9rem;align-self:flex-start" onclick="openArrayDemo()">&#9654; Try Demo</button>
+                </div>
+            </div>
+
+        </div>
+    </div></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section class="page" id="experience">
+    <div class="si"><div class="wrap">
+        <div class="slbl"><span class="r">//</span> EXPERIENCE</div>
+        <h2 class="stitle fu">Where I've Worked</h2>
+        <div class="exp-timeline">
+
+            <div class="expi fu">
+                <div class="exp-node node-blue"></div>
+                <div class="exp-header">
+                    <div>
+                        <div class="expco" style="display:flex;align-items:center;gap:.65rem;">
+                            <img src="img/tesla-logo.png" alt="Tesla" style="width:88px;height:88px;object-fit:contain;border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'">
+                            Tesla
+                        </div>
+                        <div class="expro">Electrical Infrastructure Engineering Intern</div>
+                    </div>
+                    <div class="exp-right"><span class="expbadge bup">&#9654; Upcoming</span><div class="expper">Fall 2026</div><div class="exploc">Gigafactory Texas &mdash; Austin, TX</div></div>
+                </div>
+                <p class="exp-story">Joining Tesla's electrical infrastructure team, which designs power systems from the utility level down to the end-user load — the infrastructure that keeps Tesla factories and refineries running. Work will include preparing construction drawings, single line diagrams, panel schedules, and layout drawings, as well as developing designs through fabrication-level 3D models and coordinating across manufacturing, construction, and facilities teams.</p>
+                <div class="exp-highlights"><span class="tag tb">Single Line Diagrams</span><span class="tag tb">Panel Schedules</span><span class="tag tb">Electrical Infrastructure</span><span class="tag tg">Construction Drawings</span><span class="tag tg">3D Modeling</span><span class="tag tg">Multi-Discipline Coordination</span></div>
+            </div>
+
+            <div class="expi fu">
+                <div class="exp-node node-blue"></div>
+                <div class="exp-header">
+                    <div>
+                        <div class="expco" style="display:flex;align-items:center;gap:.65rem;">
+                            <img src="img/AL-logo.png" alt="Air Liquide" style="width:88px;height:88px;object-fit:contain;border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'">
+                        Air Liquide
+                        </div>
+                        <div class="expro">Technical Support Electrical Engineering Intern &mdash; Large Industries Group</div>
+                    </div>
+                    <div class="exp-right"><span class="expbadge binp"><span class="inp-dot"></span>In Progress</span><div class="expper">Jun &ndash; Aug 2026</div><div class="exploc">Katy, TX</div></div>
+                </div>
+                <p class="exp-story">After a strong first summer at Bayport, I was invited back for a second internship with the <strong>Large Industries group</strong>, supporting asset monitoring, plant operations, and electrical systems projects across facilities that are part of the Gulf Coast Pipeline.</p>
+                <div class="exp-highlights"><span class="tag tg">Asset Monitoring</span><span class="tag tg">Plant Infrastructure</span><span class="tag tg">Power Fault Analysis</span><span class="tag tg">SKM Power Tools</span><span class="tag tg">Electrical Safety Compliance</span></div>
+            </div>
+            <div class="expi fu d1">
+                <div class="exp-node node-blue"></div>
+                <div class="exp-header">
+                    <div>
+                        <div class="expco" style="display:flex;align-items:center;gap:.65rem;">
+                            <img src="img/AL-logo.png" alt="Air Liquide" style="width:88px;height:88px;object-fit:contain;border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'">
+                        Air Liquide
+                        </div>
+                        <div class="expro">Plant Operations Electrical Engineering Intern &mdash; Bayport Plant</div>
+                    </div>                    
+                    <div class="exp-right"><span class="expbadge bdn">&#10003; Completed</span><div class="expper">Jun &ndash; Aug 2025</div><div class="exploc">Pasadena, TX</div></div>
+                </div>
+                <p class="exp-story">My first engineering internship inside an active industrial gas facility. Worked directly with <strong>protective relay systems</strong> &mdash; configuring GE Vernova Multilin relays, supporting switchgear testing, and authoring electrical equipment maintenance and testing procedures in accordance with <strong>NFPA 70E and IEEE</strong> standards.</p>
+                <div class="exp-highlights"><span class="tag tb">GE Vernova Multilin</span><span class="tag tb">Protective Relays</span><span class="tag tg">Switchgear Testing</span><span class="tag tg">Motor Testing</span><span class="tag tgr">OSHA-30</span></div>
+            </div>
+
+            <!-- ✏️ EDIT: Update Knack start semester if needed -->
+            <div class="expi fu d2">
+                <div class="exp-node node-grey"></div>
+                <div class="exp-header">
+                    <div>
+                        <div class="expco" style="display:flex;align-items:center;gap:.65rem;">
+                            <img src="img/knack-logo.png" alt="Knack" style="width:88px;height:88px;object-fit:contain;border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'">
+                            Knack Tutoring
+                        </div>
+                        <div class="expro">Peer Tutor &mdash; STEM Subjects</div>
+                    </div>
+                    <div class="exp-right"><span class="expbadge bpt">Part-Time</span><div class="expper">Fall 2025 &ndash; Present</div><div class="exploc">University of Houston</div></div>
+                </div>
+                <p class="exp-story">Tutoring fellow engineering students in foundational STEM coursework through Knack, UH&rsquo;s peer tutoring platform. Covering subjects that sit at the core of electrical engineering — from <strong>circuit analysis and digital logic</strong> to the math that underpins it all. Teaching these subjects has sharpened my own ability to reason through problems clearly and communicate technical ideas precisely.</p>
+                <div class="exp-highlights">
+                    <span class="tag tr">Circuit Analysis I &amp; II</span>
+                    <span class="tag tr">Digital Logic Design</span>
+                    <span class="tag tb">Calculus I, II, &amp; III</span>
+                    <span class="tag tb">Differential Equations</span>
+                    <span class="tag tb">Linear Algebra</span>
+                    <span class="tag tgr">Peer Teaching</span>
+                </div>
+            </div>
+
+            <!-- ✏️ EDIT: Update Take 5 dates and role title if needed -->
+            <div class="expi fu d2">
+                <div class="exp-node node-grey"></div>
+                <div class="exp-header">
+                    <div>
+                        <div class="expco" style="display:flex;align-items:center;gap:.65rem;">
+                    <img src="img/take5-logo.png" alt="Take 5" style="width:88px;height:88px;object-fit:contain;border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'">
+                      Take 5 Oil Change
+                    </div>
+                    <div class="expro">Certified Lube Technician</div>
+                    </div>
+                    <div class="exp-right"><span class="expbadge bpt">Part-Time</span><div class="expper">March 2025 &ndash; May 2025</div><div class="exploc">Crosby, TX</div></div>
+                </div>
+                <p class="exp-story">Guided customers through oil change and maintenance services in a fast-paced automotive environment. Built confidence handling <strong>direct customer interactions</strong> and service recommendations under time pressure.</p>
+                <div class="exp-highlights"><span class="tag tg">Automotive Service</span><span class="tag tg">Customer Advisory</span><span class="tag tg">Fast-Paced Safety first environment</span></div>
+            </div>
+
+            <!-- ✏️ EDIT: Update Planet Fitness dates -->
+            <div class="expi fu d1">
+                <div class="exp-node node-grey"></div>
+                <div class="exp-header">
+                    <div>
+                        <div class="expco" style="display:flex;align-items:center;gap:.65rem;">
+                <img src="img/PF-logo.png" alt="Planet Fitness" style="width:88px;height:88px;object-fit:contain;border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'">
+                    Planet Fitness
+                        </div>
+                        <div class="expro">Member Services Representative</div>
+                    </div>
+                    <div class="exp-right"><span class="expbadge bpt">Part-Time</span><div class="expper">January 2024 &ndash; March 2025</div><div class="exploc">Crosby, TX</div></div>
+                </div>
+                <p class="exp-story">Handled front desk operations including member check-ins, membership sign-ups, and facility upkeep. Developed <strong>customer-facing communication</strong> and the ability to resolve issues quickly in a high-traffic environment.</p>
+                <div class="exp-highlights"><span class="tag tg">Front Desk</span><span class="tag tg">Member Services</span><span class="tag tg">Customer Relations</span></div>
+            </div>
+
+            <div class="expi fu d3">
+                <div class="exp-node node-grey"></div>
+                <div class="exp-header">
+                    <div>
+                        <div class="expco" style="display:flex;align-items:center;gap:.65rem;">
+                    <img src="img/OliveGarden-logo.png" alt="Olive Garden" style="width:88px;height:88px;object-fit:contain;border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'">
+                        Olive Garden
+                        </div>
+                        <div class="expro">Server</div>
+                    </div>
+                    <div class="exp-right"><span class="expbadge bpt">Part-Time</span><div class="expper">Aug &ndash; Oct 2023</div><div class="exploc">Houston, TX</div></div>
+                </div>
+                <p class="exp-story">Managed full-service tables in a high-volume restaurant, consistently handling multi-course service for large parties. Developed <strong>composure under pressure and team coordination</strong> that has carried into every professional setting since.</p>
+                <div class="exp-highlights"><span class="tag tg">Customer Service</span><span class="tag tg">Time Management</span><span class="tag tg">Teamwork</span></div>
+            </div>
+
+        </div>
+    </div></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="page" id="about">
+    <div class="si"><div class="wrap">
+        <div class="slbl"><span class="b">//</span> ABOUT</div>
+        <h2 class="stitle fu">About Me</h2>
+        <div class="abgrid">
+            <div class="abtext fu">
+                <!-- ✏️ EDIT: Add your photo as img/headshot.JPG -->
+                <div class="headshot-wrap">
+                    <img src="img/headshot.JPG" alt="Roman Penunuri" class="headshot"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="headshot-ph" style="display:none">
+                        <span class="hs-ico">&#128247;</span>
+                        <span>Add img/headshot.JPG</span>
+                    </div>
+                </div>
+
+                <div class="edublk">
+                    <img src="img/uh-logo.png" alt="University of Houston" class="eduimg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="eduph" style="display:none">UH</div>
+                    <div class="edutxt">
+                        <div class="esc">University of Houston</div>
+                        <div class="ecl">Cullen College of Engineering</div>
+                       <div class="edg">B.S./M.S. ELECTRICAL ENGINEERING (ACCELERATED) &middot; POWER SYSTEMS &middot; GPA 3.82 &middot; EXP. DEC. 2028</div>
+                    </div>
+                </div>
+
+                <!-- ✏️ EDIT: Update this story to sound like you -->
+                <p>I grew up along the <span class="hw">Gulf Coast</span>, where hurricanes and extended power outages were part of life &mdash; watching the grid fail and come back gave me a reason to care about energy infrastructure that most people never think about until it's gone. That interest had roots even earlier: I grew up around video games and computers, and an uncle who worked as an electronics repairman introduced me to what's actually inside the devices we use every day &mdash; phones, CPUs, hard drives, cameras &mdash; and got me curious about circuits before I ever took a class on them.</p>
+                <p>That background pulled me into <span class="hr">Electrical Engineering</span>, concentrated in Power Systems at UH's Cullen College, with skills built out in embedded systems and software because real infrastructure problems don't stay in one lane. I'm pursuing my Master's through UH's Accelerated Bachelor's-to-Master's Program, working toward both degrees on a combined timeline.</p>
+                <p>At Air Liquide, I worked hands-on with <span class="hb">GE Vernova Multilin protective relays</span> and switchgear inside a live industrial gas plant running 24/7 &mdash; the kind of equipment where a misconfiguration has real consequences, not just a bad grade. This fall I'm continuing that at Tesla, working on electrical infrastructure design for Gigafactory Texas. On my own time, I designed and built <span class="hb">PANTRi</span> solo &mdash; a full-stack mobile app with real-time inventory sync, spend/waste analytics, and a working payment system &mdash; and led the calculations and simulation work behind a 5-person team's water level indicator circuit that met every spec on first build.</p>
+                <p>Looking for co-op and internship opportunities in power systems, defense, aerospace, MEP, circuit design, and R&amp;D. I also write a biweekly newsletter on interesting developments in electrical engineering and science &mdash; a new one every two weeks.</p>
+            </div>
+            <div class="fu d1">
+                <div class="statgrid">
+                    <div class="statcard"><div class="statval vr">3.82</div><div class="statlbl">GPA</div></div>
+                    <div class="statcard"><div class="statval vb">4th</div><div class="statlbl">Year &middot; Electrical Engineer</div></div>
+                    <div class="statcard"><div class="statval vw" style="font-size:1.5rem;line-height:1.1">Dec<br>2028</div><div class="statlbl">Expected Grad</div></div>
+                    <div class="statcard"><div class="statval vr">OSHA-30 Hour</div><div class="statlbl">Certified</div></div>
+                </div>
+                <div class="sidelbl">Organizations &amp; Affiliations</div>
+                <div class="orgstrip">
+                    <div class="orgtile" onclick="openOrg('tbp')">
+                        <img src="img/tau-beta-pi.png" alt="Tau Beta Pi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="orgph" style="display:none">&#932;&#914;&#928;</div>
+                        <div class="orgname">Tau Beta Pi</div>
+                    </div>
+                    <div class="orgtile" onclick="openOrg('shpe')">
+                        <img src="img/shpe-logo.png" alt="SHPE" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="orgph" style="display:none">SHPE</div>
+                        <div class="orgname">SHPE</div>
+                    </div>
+                    <div class="orgtile" onclick="openOrg('ieee')">
+                        <img src="img/ieee-logo.png" alt="IEEE UH" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="orgph" style="display:none">IEEE</div>
+                        <div class="orgname">IEEE — UH Chapter</div>
+                    </div>
+                    <div class="orgtile" onclick="openOrg('cullen')">
+                        <img src="img/cullen-logo.png" alt="Cullen College" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="orgph" style="display:none">CCE</div>
+                        <div class="orgname">Cullen College of Engineering</div>
+                    </div>
+                </div>
+                <div class="sidelbl">Certifications</div>
+                <div class="certitem"><span class="cico">&#9670;</span><div><div>OSHA-30 General Industry</div></div></div>
+                <div class="certitem"><span class="cico">&#9670;</span><div><div>PLC Basics &mdash; Automation Community</div><div style="font-family:var(--fm);font-size:.6rem;color:var(--g3);letter-spacing:.07em;margin-top:.15rem;">6 Hours &middot; Completed May 2026</div></div></div>
+                <div class="certitem"><span class="cico">&#9670;</span><div><div>CBT 101: Introduction to SEL Relays &mdash; SEL University</div><div style="font-family:var(--fm);font-size:.6rem;color:var(--g3);letter-spacing:.07em;margin-top:.15rem;">4 PDHs &middot; Issued May 24, 2026 &middot; Expires May 2028</div></div></div>
+            </div>
+        </div>
+    </div></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section class="page" id="skills">
+    <div class="si"><div class="wrap">
+        <div class="slbl"><span class="r">//</span> SKILLS</div>
+        <h2 class="stitle fu">Technical Toolkit</h2>
+        <div class="skillgrid">
+            <div class="fu d1">
+                <div class="sklbl">Power &amp; Electrical</div>
+                <div class="pills">
+                    <span class="pill">Protective Relay Config<span class="pill-src">Air Liquide</span></span>
+                    <span class="pill">GE Vernova Multilin<span class="pill-src">Air Liquide</span></span>
+                    <span class="pill">Switchgear Testing<span class="pill-src">Air Liquide</span></span>
+                    <span class="pill">Motor Testing<span class="pill-src">Air Liquide</span></span>
+                    <span class="pill">Analog Circuit Design<span class="pill-src">LED Indicator Project</span></span>
+                    <span class="pill">Circuit Simulation<span class="pill-src">LED Indicator Project</span></span>
+                    <span class="pill">Falstad Simulator<span class="pill-src">LED Indicator Project</span></span>
+                    <span class="pill">3-Phase Power<span class="pill-src">Air Liquide</span></span>
+                    <span class="pill">Oscilloscope &amp; Lab Equipment<span class="pill-src">ECE Coursework</span></span>
+                </div>
+            </div>
+            <div class="fu d2">
+                <div class="sklbl">Embedded Systems</div>
+                <div class="pills">
+                    <span class="pill">ARM Cortex-M4<span class="pill-src">ECE Coursework</span></span>
+                    <span class="pill">ARM Assembly<span class="pill-src">ECE Coursework</span></span>
+                    <span class="pill">C (Embedded)<span class="pill-src">ECE Coursework</span></span>
+                    <span class="pill">Microcontroller Programming<span class="pill-src">ECE Coursework</span></span>
+                    <span class="pill">State Machine Design<span class="pill-src">ECE Coursework</span></span>
+                    <span class="pill">MATLAB<span class="pill-src">MATLAB Projects</span></span>
+                    <span class="pill">Numerical Methods<span class="pill-src">ECE Coursework</span></span>
+                    <span class="pill">Tinkercad Circuits<span class="pill-src">ECE Coursework</span></span>
+                    <span class="pill">SimuAID<span class="pill-src">ECE Coursework</span></span>
+                </div>
+            </div>
+            <div class="fu d3">
+                <div class="sklbl">Software &amp; Other</div>
+                <div class="pills">
+                    <span class="pill">React Native<span class="pill-src">PANTRi</span></span>
+                    <span class="pill">Supabase &amp; PostgreSQL<span class="pill-src">PANTRi</span></span>
+                    <span class="pill">Stripe<span class="pill-src">PANTRi</span></span>
+                    <span class="pill">Git &amp; GitHub<span class="pill-src">PANTRi &amp; Portfolio</span></span>
+                    <span class="pill">MATLAB App Designer<span class="pill-src">Family Game Night App</span></span>
+                    <span class="pill">Prototyping<span class="pill-src">LED Indicator Project</span></span>
+                    <span class="pill">Technical Documentation<span class="pill-src">Air Liquide</span></span>
+                    <span class="pill">Team Leadership<span class="pill-src">LED Indicator Project</span></span>
+                </div>
+            </div>
+        </div>
+    </div></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ✏️ EDIT: AI Tips & Tricks. Content lives in tipsData/promptData in the script below. -->
+<!-- AI TIPS & TRICKS -->
+<section class="page" id="ai-help">
+    <div class="si"><div class="wrap">
+        <div class="slbl"><span class="b">//</span> AI TIPS &amp; TRICKS</div>
+        <h2 class="stitle fu">Using AI Well</h2>
+        <p style="color:var(--g2);font-size:.95rem;font-weight:300;max-width:640px;line-height:1.7;margin-bottom:1rem;" class="fu d1">A running collection of AI tips and ready-to-use prompts that work with any major AI assistant &mdash; some for people just getting started, some for the exact workflows I use for resumes, presentations, and school/internship work. Take what's useful.</p>
+
+        <div class="fu d2" style="background:var(--card);border:1px solid var(--bbord);border-radius:10px;padding:1.25rem 1.5rem;max-width:640px;margin-bottom:1rem;">
+            <div style="font-family:var(--fm);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem;">What I Use: Claude</div>
+            <p style="color:var(--g1);font-size:.86rem;font-weight:300;line-height:1.7;margin:0 0 .75rem;">Its Skills feature lets it apply real best-practice knowledge (proper document formatting, coding conventions, etc.) instead of guessing, it's noticeably better at catching and correcting its own mistakes mid-task, and its voice/speech interaction is the smoothest I've used for talking through a problem hands-free.</p>
+            <p style="color:var(--g2);font-size:.82rem;font-weight:300;line-height:1.7;margin:0;">The tips and prompts below are general enough to work with any major AI assistant and should get you solid results wherever you run them &mdash; but I built and tested them in Claude, and that's usually where they perform best.</p>
+        </div>
+
+        <div class="ai-section-label">Quick Tips</div>
+        <div class="ai-tip-grid" id="aiTipGrid"></div>
+
+        <div class="ai-section-label">Prompt Library</div>
+        <div class="ai-prompt-grid" id="aiPromptGrid"></div>
+    </div></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="page" id="contact">
+    <div class="wrap">
+        <div class="cinner">
+            <div class="ceye"><span class="b">//</span> CONTACT</div>
+            <h2 class="ctitle fu">Let's Connect</h2>
+            <p class="csub fu d1">Summer 2027 &mdash; open to co-op and internship opportunities.</p>            
+            <div class="crow fu d2">
+                <div class="clink-wrap">
+                    <div class="clink-prefix">Email</div>
+                    <a href="mailto:rapenunuri@gmail.com" class="btn btn-blue">rapenunuri@gmail.com</a>
+                </div>
+                <div class="clink-wrap">
+                    <div class="clink-prefix">Phone</div>
+                    <a href="tel:7134498069" class="btn btn-out">713-449-8069</a>
+                </div>
+                <div class="clink-wrap">
+                    <div class="clink-prefix">LinkedIn</div>
+                    <a href="https://linkedin.com/in/roman-penunuri-04a22828b" target="_blank" rel="noopener" class="btn btn-out">roman-penunuri &nearr;</a>
+                </div>
+            </div>
+            <div class="fu d3" style="margin-top:2.5rem;">
+                <div class="clink-prefix" style="margin-bottom:.85rem;">Newsletter</div>
+                <p style="color:var(--g2);font-size:.85rem;font-weight:300;max-width:480px;margin:0 auto .85rem;">A biweekly newsletter on interesting developments in electrical engineering and science &mdash; new one every two weeks.</p>
+                <div class="substack-embed-wrap">
+                    <iframe src="https://romanpenunuri.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no" title="Subscribe to Roman's Rundown"></iframe>
+                </div>
+            </div>
+            <div class="fu d3" style="margin-top:2.5rem;">
+                <div class="clink-prefix" style="margin-bottom:.85rem;">Tutoring</div>
+                <p style="color:var(--g2);font-size:.85rem;font-weight:300;max-width:480px;margin:0 auto .85rem;">I occasionally tutor ECE coursework, including circuits, digital logic, and electronics, plus math prerequisites like calculus, pre-calculus, and algebra. Not currently available &mdash; between my internship and coursework I don't have the bandwidth right now.</p>
+                <span class="btn btn-sm btn-out btn-dim" title="Not currently available">Request Tutoring &mdash; Unavailable</span>
+            </div>
+            <div class="fu d3" style="margin-top:2.5rem;">
+                <div class="clink-prefix" style="margin-bottom:.85rem;">Download Resume &mdash; Select a Track</div>
+                <div style="display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;">
+                    <a href="resumes/Resume_Penunuri_01_MEP_Electrical.pdf" download class="btn btn-sm btn-out">MEP &amp; Electrical &darr;</a>
+                    <a href="resumes/Resume_Penunuri_02_Aerospace_Defense.pdf" download class="btn btn-sm btn-out">Aerospace &amp; Defense &darr;</a>
+                    <a href="resumes/Resume_Penunuri_03_Renewable_Energy.pdf" download class="btn btn-sm btn-out">Renewable Energy &darr;</a>
+                    <a href="resumes/Resume_Penunuri_04_Power_Infrastructure.pdf" download class="btn btn-sm btn-out">Power Infrastructure &darr;</a>
+                    <a href="resumes/Resume_Penunuri_05_Controls_Engineering.pdf" download class="btn btn-sm btn-out">Controls Engineering &darr;</a>
+                    <a href="resumes/Resume_Penunuri_06_Electronics_Circuit_Design.pdf" download class="btn btn-sm btn-out">Electronics &amp; Circuit Design &darr;</a>
+                    <a href="resumes/Resume_Penunuri_07_RD_Research.pdf" download class="btn btn-sm btn-out">Research &amp; Development &darr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="flogo">RP<span style="color:var(--red)">.</span><span style="color:var(--blue)">_</span></div>
+        <div class="fcopy">&copy; 2026 Roman Penunuri &middot; Built with HTML, CSS &amp; care</div>
+    </div>
+</footer>
+
+<script>
+    // Scroll animations (fires once per page when it becomes active)
+    const fadeObs = new IntersectionObserver(
+        es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }),
+        { threshold: .1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.fu').forEach(el => fadeObs.observe(el));
+
+    // ── PAGE ROUTER (replaces continuous scroll) ──
+    const PAGE_IDS = ['home', 'projects', 'experience', 'about', 'skills', 'ai-help', 'contact'];
+
+    function showPage(hash) {
+        let id = (hash || '#home').replace('#', '');
+        if (!PAGE_IDS.includes(id)) id = 'home';
+
+        document.querySelectorAll('.page').forEach(p => {
+            p.classList.toggle('active', p.id === id);
+        });
+
+        window.scrollTo(0, 0);
+
+        document.querySelectorAll('.nlinks a').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+
+        // Re-trigger fade-in for the newly shown page's elements
+        const activePage = document.getElementById(id);
+        if (activePage) {
+            activePage.querySelectorAll('.fu').forEach(el => {
+                el.classList.remove('vis');
+                requestAnimationFrame(() => el.classList.add('vis'));
+            });
+        }
+    }
+    window.addEventListener('hashchange', () => showPage(location.hash));
+    window.addEventListener('load', () => showPage(location.hash));
+    showPage(location.hash);
+
+    // Mobile hamburger nav
+    function toggleMobileNav() {
+        document.getElementById('navLinks').classList.toggle('mobile-open');
+    }
+    document.querySelectorAll('.nlinks a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('mobile-open');
+        });
+    });
+
+    // ── AI TIPS & TRICKS ──
+    // ✏️ EDIT: add/edit tips and prompts here — everything renders from these two arrays.
+    const tipsData = [
+        { title: 'Give the AI the goal, not just the task', text: 'Instead of "write a resume bullet," say what the bullet needs to accomplish — the target role, the skill to highlight, the length limit. Better context in, better output out.' },
+        { title: 'Ask for options, not one answer', text: 'For anything subjective (tone, wording, design), ask for 2-3 versions instead of one. Comparing options is faster than iterating on a single draft.' },
+        { title: 'Use step-by-step reasoning for anything technical', text: 'For circuit analysis, calculations, or code, ask it to show its work step by step. It catches more of its own mistakes that way, and you can spot-check the logic.' },
+        { title: 'Upload your actual materials', text: 'Upload your real resume, transcript, or project write-up instead of describing them. The AI works from what\u2019s actually there, not a rough summary of it.' },
+        { title: 'Iterate instead of restarting', text: 'If a draft is close but not right, say specifically what to change ("make this more concise," "cut the second paragraph") rather than re-explaining the whole task from scratch.' },
+        { title: 'Set the format up front', text: 'State the output format you need \u2014 bullet points, a table, a word count, a specific structure \u2014 in the same message as the request. Saves a reformatting round-trip.' }
+    ];
+
+    const promptData = [
+        {
+            tag: 'Career',
+            title: 'Resume Tailoring',
+            teaser: 'Turns a job posting + your existing resume into targeted, role-specific bullet points.',
+            explain: 'Paste the full job description first, then your current resume text (or upload the PDF). This works because it forces the AI to match your real experience against the employer\u2019s actual language, instead of generating generic bullets.',
+            files: 'Upload: your current resume (PDF or doc). Optional: a couple of past resume versions if you\u2019ve tailored for similar roles before, so it can match your tone.',
+            worksBestAs: 'Fine as a standalone chat for a single application. If you\u2019re applying to several roles, do it in a Project with your resume and work history saved as project knowledge \u2014 you won\u2019t have to re-upload for every posting.',
+            prompt: 'I\u2019m applying for this role: [paste job posting]\n\nHere is my current resume: [paste text or upload PDF]\n\nRewrite my experience bullets to align with this role\u2019s requirements. Keep every bullet truthful to what I actually did \u2014 don\u2019t invent skills or results. Use strong action verbs, quantify outcomes where possible, and keep each bullet to one line. Flag any gaps where my experience doesn\u2019t match what they\u2019re asking for.'
+        },
+        {
+            tag: 'Presentations',
+            title: 'Presentation Helper',
+            teaser: 'Builds a clear slide-by-slide outline from raw notes or a project write-up before you touch PowerPoint.',
+            explain: 'Do this before opening any slide software. Getting the structure and talking points right first means you\u2019re not redesigning slides mid-build.',
+            files: 'Upload: your raw notes, data, or project write-up, plus the company/school\u2019s slide template or brand guide if they gave you one, and any example decks or instructions they provided so the outline matches their expected structure.',
+            worksBestAs: 'Standalone chat works for a one-off presentation. For a recurring template (e.g. weekly status decks), a Project with the company template and past decks saved keeps the format consistent every time.',
+            prompt: 'I need to present on: [topic/project]\n\nAudience: [e.g. professor, recruiters, technical team]\nTime limit: [e.g. 10 minutes]\n\nHere are my raw notes/results: [paste notes or upload files]\n\nIf provided, here is the template/format I need to follow: [upload template or describe requirements]\n\nBuild me a slide-by-slide outline: one line for the slide title, 2-4 bullet points of what goes on it, and a sentence of speaker notes for what I\u2019d actually say. Keep it tight enough to fit the time limit, and put the most important result or finding in the first third of the deck, not buried at the end.'
+        },
+        {
+            tag: 'Interviews',
+            title: 'Technical Interview Prep',
+            teaser: 'Runs a mock technical Q&A based on the specific role and your background, then critiques your answers.',
+            explain: 'Works best as a back-and-forth: answer out loud or in writing, then ask for a critique before moving to the next question, rather than getting all the questions at once.',
+            files: 'Upload: the job posting and your resume. Optional: a course syllabus or project report if the interview will dig into specific coursework or a specific project.',
+            worksBestAs: 'Standalone chat is fine \u2014 this is a one-time prep session per interview, so there\u2019s not much benefit to a persistent Project.',
+            prompt: 'I have a technical interview for this role: [paste job posting or describe it]\n\nMy background: [paste resume or describe relevant coursework/projects]\n\nAsk me one technical interview question at a time related to this role. After I answer, tell me what a strong answer would include that I missed, and whether my explanation would make sense to an interviewer with no prior context on my project. Then ask the next question.'
+        },
+        {
+            tag: 'Coursework',
+            title: 'Concept Check & Study Guide',
+            teaser: 'Turns lecture notes or a textbook chapter into a study guide and quizzes you on the weak spots.',
+            explain: 'Upload the actual notes rather than just naming the topic \u2014 the study guide is only as good as what it\u2019s built from, and this catches gaps you didn\u2019t know you had.',
+            files: 'Upload: lecture slides/notes, the relevant textbook chapter or excerpt, and any practice problems or past exams the professor has shared.',
+            worksBestAs: 'A Project works best for a whole course \u2014 keep all lecture notes and past study guides in it so quizzes build on what you\u2019ve already covered instead of starting cold each session.',
+            prompt: 'Here are my notes on [topic/course]: [paste notes or upload file]\n\nFirst, summarize the key concepts in plain language, as if explaining to someone who missed the lecture. Then quiz me with 5 questions ranging from basic recall to applied problem-solving. After each answer I give, tell me if I\u2019m right, and if not, explain the gap in my understanding rather than just giving the correct answer.'
+        }
+    ];
+
+    function renderAIHelp() {
+        const tipGrid = document.getElementById('aiTipGrid');
+        tipGrid.innerHTML = tipsData.map(t => `
+            <div class="ai-tip">
+                <div class="ai-tip-title">${t.title}</div>
+                <div class="ai-tip-text">${t.text}</div>
+            </div>
+        `).join('');
+
+        const promptGrid = document.getElementById('aiPromptGrid');
+        promptGrid.innerHTML = promptData.map((p, i) => `
+            <div class="ai-promptcard" onclick="openPromptModal(${i})">
+                <span class="ai-promptcard-tag">${p.tag}</span>
+                <div class="ai-promptcard-title">${p.title}</div>
+                <div class="ai-promptcard-teaser">${p.teaser}</div>
+                <div class="ai-promptcard-cta">View Prompt &rarr;</div>
+            </div>
+        `).join('');
+    }
+    renderAIHelp();
+
+    let currentPromptIdx = null;
+    function openPromptModal(i) {
+        currentPromptIdx = i;
+        const p = promptData[i];
+        document.getElementById('aiModalTag').textContent = p.tag;
+        document.getElementById('aiModalTitle').textContent = p.title;
+        document.getElementById('aiModalPrompt').textContent = p.prompt;
+        document.getElementById('aiModalExplain').textContent = p.explain;
+        document.getElementById('aiModalFiles').textContent = p.files;
+        document.getElementById('aiModalWorksBest').textContent = p.worksBestAs;
+        const btn = document.getElementById('aiModalCopyBtn');
+        btn.textContent = 'Copy Prompt';
+        btn.classList.remove('copied');
+        document.getElementById('aiPromptModal').classList.add('open');
+    }
+    function closePromptModal(e, force) {
+        if (force || e.target === document.getElementById('aiPromptModal')) {
+            document.getElementById('aiPromptModal').classList.remove('open');
+        }
+    }
+    function copyPromptText() {
+        if (currentPromptIdx === null) return;
+        const text = promptData[currentPromptIdx].prompt;
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('aiModalCopyBtn');
+            btn.textContent = 'Copied \u2713';
+            btn.classList.add('copied');
+            setTimeout(() => { btn.textContent = 'Copy Prompt'; btn.classList.remove('copied'); }, 1800);
+        });
+    }
+
+    // ── PANTRi carousel with looping ──
+    let carIdx = 0;
+    const CAR_ID = 'pantriCar';
+
+    function carSlides() { return [...document.querySelectorAll('#' + CAR_ID + ' .ph-slide')]; }
+
+    function scrollToSlide(idx, instant) {
+        const car = document.getElementById(CAR_ID);
+        const slides = carSlides();
+        if (!slides[idx]) return;
+        const slide = slides[idx];
+        const slideCenter = slide.offsetLeft - (car.clientWidth / 2) + (slide.offsetWidth / 2);
+        car.scrollTo({ left: Math.max(0, slideCenter), behavior: instant ? 'instant' : 'smooth' });
+        updateDots(idx);
+    }
+
+    function scrollCar(dir) {
+        const slides = carSlides();
+        const n = slides.length;
+        const car = document.getElementById(CAR_ID);
+        if (dir === 1 && carIdx === n - 1) {
+            // At last, jump instantly to first then animate is already at 0
+            carIdx = 0;
+            car.scrollTo({ left: 0, behavior: 'instant' });
+            updateDots(0);
+        } else if (dir === -1 && carIdx === 0) {
+            // At first, jump instantly to last
+            carIdx = n - 1;
+            car.scrollTo({ left: car.scrollWidth, behavior: 'instant' });
+            updateDots(n - 1);
+        } else {
+            carIdx = (carIdx + dir + n) % n;
+            scrollToSlide(carIdx, false);
+        }
+    }
+
+    function updateDots(idx) {
+        carIdx = idx;
+        document.querySelectorAll('.car-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === idx);
+        });
+    }
+
+    function initCarousel() {
+        const slides = carSlides();
+        const dotsContainer = document.getElementById('carDots');
+        if (!dotsContainer || !slides.length) return;
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'car-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => { scrollToSlide(i, false); };
+            dotsContainer.appendChild(dot);
+        });
+        // Center first slide on load
+        setTimeout(() => scrollToSlide(0, true), 50);
+    }
+    window.addEventListener('load', initCarousel);
+
+    // ── Image lightbox ──
+    function openImg(src) {
+        document.getElementById('modalImgEl').src = src;
+        document.getElementById('imgModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeImgModal(e, force) {
+        if (force || e.target === document.getElementById('imgModal')) {
+            document.getElementById('imgModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // ── Org modal ──
+    const orgData = {
+        tbp: {
+            name: 'Tau Beta Pi',
+            sub: 'Engineering Honor Society · Member since April 2025',
+            img: 'img/tau-beta-pi.png', ph: '\u03A4\u0392\u03A0',
+            desc: 'Tau Beta Pi is the oldest engineering honor society in the United States, founded in 1885. I was inducted in April 2025 based on academic performance — membership is extended to the top eighth of the junior class in engineering. It\'s a recognition I\'m proud of because it reflects consistent work across genuinely difficult coursework.',
+            link: 'https://www.tbp.org'
+        },
+        shpe: {
+            name: 'SHPE',
+            sub: 'Society of Hispanic Professional Engineers · Member since August 2023',
+            img: 'img/shpe-logo.png', ph: 'SHPE',
+            desc: 'SHPE is the nation\'s largest Hispanic STEM organization. As a Hispanic engineer, being part of this community has meant a lot — it provides real support through internship pipelines, mentorship, and a network of people who understand the experience. I\'ve been a member of the UH chapter since my first semester and it\'s been one of the more meaningful parts of my time here.',
+            link: 'https://www.shpe.org'
+        },
+        ieee: {
+            name: 'IEEE — UH Chapter',
+            sub: 'Institute of Electrical and Electronics Engineers · Member since August 2023',
+            img: 'img/ieee-logo.png', ph: 'IEEE',
+            desc: 'I joined IEEE primarily for the workshops and the people. Being around students who are genuinely excited about electrical engineering pushes you to go deeper. The UH chapter runs hands-on technical sessions that go beyond what\'s covered in class, and the connections to working engineers in the Houston area have been useful for understanding what the field actually looks like.',
+            link: 'https://www.ieee.org'
+        },
+        cullen: {
+            name: 'Cullen College of Engineering',
+            sub: 'Dept. of Electrical & Computer Engineering · University of Houston',
+            img: 'img/cullen-logo.png', ph: 'CCE',
+            desc: 'I\'m enrolled in the Department of Electrical and Computer Engineering at UH\'s Cullen College of Engineering, concentrating in Power Systems. Cullen is one of the largest engineering colleges in Texas. The ECE department has given me exposure across circuits, embedded systems, power, and signal processing — and the Power Systems track specifically lines up with the kind of infrastructure work I want to do.',
+            link: 'https://engineering.uh.edu/departments/ece'
+        }
+    };
+
+    function openOrg(key) {
+        const d = orgData[key];
+        if (!d) return;
+        document.getElementById('orgModalImg').src = d.img;
+        document.getElementById('orgModalImg').style.display = 'block';
+        document.getElementById('orgModalPh').style.display = 'none';
+        document.getElementById('orgModalPh').textContent = d.ph;
+        document.getElementById('orgModalName').textContent = d.name;
+        document.getElementById('orgModalSub').textContent = d.sub;
+        document.getElementById('orgModalDesc').textContent = d.desc;
+        document.getElementById('orgModalLink').href = d.link;
+        document.getElementById('orgModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeOrgModal(e, force) {
+        if (force || e.target === document.getElementById('orgModal')) {
+            document.getElementById('orgModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // ── Video modal ──
+    function openVidModal() {
+        const modal = document.getElementById('vidModal');
+        const video = document.getElementById('modalVideo');
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        video.play().catch(() => {});
+    }
+    function closeVidModal(e, force) {
+        if (force || e.target === document.getElementById('vidModal')) {
+            document.getElementById('vidModal').classList.remove('open');
+            document.body.style.overflow = '';
+            document.getElementById('modalVideo').pause();
+        }
+    }
+
+    // Escape closes any open modal
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            closeVidModal(null, true);
+            closeImgModal(null, true);
+            closeOrgModal(null, true);
+            closeEMWaveDemo(null, true);
+            closeSmithDemo(null, true);
+            closeArrayDemo(null, true);
+            closePromptModal(null, true);
+        }
+    });
+
+    // ── COMPLEX NUMBER HELPERS ──
+    function cdiv(a,b){const d=b.r*b.r+b.i*b.i;return{r:(a.r*b.r+a.i*b.i)/d,i:(a.i*b.r-a.r*b.i)/d};}
+    function cmul(a,b){return{r:a.r*b.r-a.i*b.i,i:a.r*b.i+a.i*b.r};}
+    function csub(a,b){return{r:a.r-b.r,i:a.i-b.i};}
+    function cadd(a,b){return{r:a.r+b.r,i:a.i+b.i};}
+    function cabs(a){return Math.sqrt(a.r*a.r+a.i*a.i);}
+    function carg(a){return Math.atan2(a.i,a.r);}
+    function cneg(a){return{r:-a.r,i:-a.i};}
+    // exp(-j*kz*z) where kz={r,i}: = exp(kz.i*z)*(cos(kz.r*z)-j*sin(kz.r*z))
+    function cexpKz(kz,z){const m=Math.exp(kz.i*z);return{r:m*Math.cos(kz.r*z),i:-m*Math.sin(kz.r*z)};}
+    function csqrt(z){const r=cabs(z);const a=Math.sqrt((r+z.r)/2);const b=(z.i>=0?1:-1)*Math.sqrt(Math.max(0,(r-z.r)/2));return{r:a,i:b};}
+    function csqrtDecay(z){const s=csqrt(z);return s.i>0?{r:-s.r,i:-s.i}:s;}
+    function parseComplexInput(str){
+        if(!str||str.trim()==='')return null;
+        str=str.trim().replace(/\s/g,'');
+        // pure real
+        if(/^[+-]?\d*\.?\d+$/.test(str))return{r:parseFloat(str),i:0};
+        const jIdx=str.indexOf('j');
+        if(jIdx===-1)return null;
+        const before=str.slice(0,jIdx),after=str.slice(jIdx+1);
+        // pure imaginary forms: j, -j, j3, -j3.5, 3j
+        if(!before||before==='-'||before==='+'){
+            if(after==='')return{r:0,i:before==='-'?-1:1};
+            if(/^\d*\.?\d+$/.test(after))return{r:0,i:(before==='-'?-1:1)*parseFloat(after)};
+        }
+        if(after===''&&/^[+-]?\d*\.?\d+$/.test(before))return{r:0,i:parseFloat(before)};
+        // a+jb or a-jb (j before coefficient)
+        let m=str.match(/^([+-]?\d*\.?\d+)([+-])j(\d*\.?\d+)$/);
+        if(m)return{r:parseFloat(m[1]),i:(m[2]==='-'?-1:1)*parseFloat(m[3])};
+        // a+j or a-j (imaginary part = ±1)
+        m=str.match(/^([+-]?\d*\.?\d+)([+-])j$/);
+        if(m)return{r:parseFloat(m[1]),i:m[2]==='-'?-1:1};
+        // a+bj or a-bj (j after coefficient)
+        m=str.match(/^([+-]?\d*\.?\d+)([+-]\d*\.?\d+)j$/);
+        if(m)return{r:parseFloat(m[1]),i:parseFloat(m[2])};
+        return null;
+    }
+
+    // ─── Viewport state for zoom/pan ────────────────────────────────────────
+    const emVP  = { xMin:-6*Math.PI, xMax:6*Math.PI, yMin:0, yMax:2.5 };
+    const smVP  = { cx0:0, cy0:0, hr:1.12 };
+    const smWVP = { xMin:-1, xMax:0, yMin:0, yMax:2.5 };
+    let emZPInit=false, smZPInit=false, emAutoFit=true;
+
+    function resetEMView(){
+        emVP.xMin=-6*Math.PI; emVP.xMax=6*Math.PI;
+        emAutoFit=true;
+        runEMWaveDemo();
+    }
+
+    function resetSmithView(){smVP.cx0=0;smVP.cy0=0;smVP.hr=1.12;runSmithDemo();}
+    function resetSmithWaveView(){smWVP.xMin=-1;smWVP.xMax=0;smWVP.yMin=0;smWVP.yMax=2.5;runSmithDemo();}
+
+    function initEMZP(){
+        if(emZPInit)return; emZPInit=true;
+        const cv=document.getElementById('emWaveCanvas');
+        cv.title='Scroll=zoom · Drag=pan · Dblclick=reset'; cv.style.cursor='crosshair';
+        const pad={l:46,r:12,t:22,b:36};
+        let drag=false,lx=0,ly=0;
+        cv.addEventListener('wheel',e=>{
+            emAutoFit=false;
+            e.preventDefault();
+            const r=cv.getBoundingClientRect();
+            const pW=cv.width-pad.l-pad.r, pH=cv.height-pad.t-pad.b;
+            const fx=Math.max(0,Math.min(1,((e.clientX-r.left)/r.width*cv.width-pad.l)/pW));
+            const fy=Math.max(0,Math.min(1,((e.clientY-r.top)/r.height*cv.height-pad.t)/pH));
+            const xc=emVP.xMin+fx*(emVP.xMax-emVP.xMin);
+            const yc=emVP.yMax-fy*(emVP.yMax-emVP.yMin);
+            const f=e.deltaY<0?0.75:1/0.75;
+            emVP.xMin=xc+(emVP.xMin-xc)*f; emVP.xMax=xc+(emVP.xMax-xc)*f;
+            emVP.yMin=yc+(emVP.yMin-yc)*f; emVP.yMax=yc+(emVP.yMax-yc)*f;
+            runEMWaveDemo();
+        },{passive:false});
+        cv.addEventListener('mousedown',e=>{drag=true;lx=e.clientX;ly=e.clientY;cv.style.cursor='grabbing';});
+        cv.addEventListener('mouseup',  ()=>{drag=false;cv.style.cursor='crosshair';});
+        cv.addEventListener('mouseleave',()=>{drag=false;cv.style.cursor='crosshair';});
+        cv.addEventListener('mousemove',e=>{
+            if(!drag)return;
+            emAutoFit=false;
+            const r=cv.getBoundingClientRect();
+            const dx=(e.clientX-lx)/r.width*(emVP.xMax-emVP.xMin);
+            const dy=(e.clientY-ly)/r.height*(emVP.yMax-emVP.yMin);
+            emVP.xMin-=dx; emVP.xMax-=dx; emVP.yMin+=dy; emVP.yMax+=dy;
+            lx=e.clientX; ly=e.clientY; runEMWaveDemo();
+        });
+        cv.addEventListener('dblclick',()=>{
+            emVP.xMin=-6*Math.PI; emVP.xMax=6*Math.PI; emVP.yMin=0; emVP.yMax=2.5;
+            runEMWaveDemo();
+        });
+    }
+
+    function initSmithZP(){
+        if(smZPInit)return; smZPInit=true;
+        function setupSmP(canvas, onWheel, onDrag){
+            canvas.title='Scroll=zoom · Drag=pan · Dblclick=reset'; canvas.style.cursor='crosshair';
+            let drag=false,lx=0,ly=0;
+            canvas.addEventListener('wheel',e=>{e.preventDefault();onWheel(e,canvas);},{passive:false});
+            canvas.addEventListener('mousedown',e=>{drag=true;lx=e.clientX;ly=e.clientY;canvas.style.cursor='grabbing';});
+            canvas.addEventListener('mouseup',  ()=>{drag=false;canvas.style.cursor='crosshair';});
+            canvas.addEventListener('mouseleave',()=>{drag=false;canvas.style.cursor='crosshair';});
+            canvas.addEventListener('mousemove',e=>{if(!drag)return;onDrag(e,canvas,lx,ly);lx=e.clientX;ly=e.clientY;});
+        }
+        const sc=document.getElementById('smithCanvas');
+        setupSmP(sc,
+            (e,cv)=>{
+                const r=cv.getBoundingClientRect();
+                const mx=(e.clientX-r.left)/r.width*cv.width, my=(e.clientY-r.top)/r.height*cv.height;
+                const Gr=(smVP.cx0-smVP.hr)+mx/cv.width*2*smVP.hr;
+                const Gi=(smVP.cy0+smVP.hr)-my/cv.height*2*smVP.hr;
+                const f=e.deltaY<0?0.75:1/0.75;
+                smVP.cx0=Gr+(smVP.cx0-Gr)*f; smVP.cy0=Gi+(smVP.cy0-Gi)*f; smVP.hr*=f;
+                runSmithDemo();
+            },
+            (e,cv,lx,ly)=>{
+                const r=cv.getBoundingClientRect();
+                smVP.cx0-=(e.clientX-lx)/r.width*2*smVP.hr;
+                smVP.cy0+=(e.clientY-ly)/r.height*2*smVP.hr;
+                runSmithDemo();
+            }
+        );
+        sc.addEventListener('dblclick',()=>{smVP.cx0=0;smVP.cy0=0;smVP.hr=1.12;runSmithDemo();});
+
+        const wc=document.getElementById('smithWaveCanvas');
+        setupSmP(wc,
+            (e,cv)=>{
+                const r=cv.getBoundingClientRect();
+                const fx=(e.clientX-r.left)/r.width, fy=(e.clientY-r.top)/r.height;
+                const xc=smWVP.xMin+fx*(smWVP.xMax-smWVP.xMin);
+                const yc=smWVP.yMax-fy*(smWVP.yMax-smWVP.yMin);
+                const f=e.deltaY<0?0.75:1/0.75;
+                smWVP.xMin=xc+(smWVP.xMin-xc)*f; smWVP.xMax=xc+(smWVP.xMax-xc)*f;
+                smWVP.yMin=yc+(smWVP.yMin-yc)*f; smWVP.yMax=yc+(smWVP.yMax-yc)*f;
+                runSmithDemo();
+            },
+            (e,cv,lx,ly)=>{
+                const r=cv.getBoundingClientRect();
+                const dx=(e.clientX-lx)/r.width*(smWVP.xMax-smWVP.xMin);
+                const dy=(e.clientY-ly)/r.height*(smWVP.yMax-smWVP.yMin);
+                smWVP.xMin-=dx; smWVP.xMax-=dx; smWVP.yMin+=dy; smWVP.yMax+=dy;
+                runSmithDemo();
+            }
+        );
+        wc.addEventListener('dblclick',()=>{smWVP.xMin=-1;smWVP.xMax=0;smWVP.yMin=0;smWVP.yMax=2.5;runSmithDemo();});
+    }
+
+    // ── EM WAVE INTERFACE DEMO ──
+    function openEMWaveDemo(){
+        document.getElementById('emWaveModal').classList.add('open');
+        document.body.style.overflow='hidden';
+        initEMZP();
+        runEMWaveDemo();
+    }
+    function closeEMWaveDemo(e,force){
+        if(force||e.target===document.getElementById('emWaveModal')){
+            document.getElementById('emWaveModal').classList.remove('open');
+            document.body.style.overflow='';
+        }
+    }
+
+    function runEMWaveDemo(){
+        const tDeg=parseFloat(document.getElementById('em-angle').value)||60;
+        const er1raw=parseComplexInput(document.getElementById('em-er1').value)||{r:1,i:0};
+        const er1c={r:Math.max(0.01,er1raw.r), i:er1raw.i||0};
+        const er2raw=parseComplexInput(document.getElementById('em-er2').value)||{r:6.5,i:0};
+        const er2c={r:Math.max(0.01,er2raw.r), i:er2raw.i||0};
+        const er1isReal=Math.abs(er1c.i)<1e-10, er2isReal=Math.abs(er2c.i)<1e-10;
+        const isPEC=document.getElementById('em-pec').checked;
+        const pol=document.getElementById('em-pol').value;
+
+        const t1=tDeg*Math.PI/180;
+        // kx real, defined by sqrt(Re(er1))*sin(theta)
+        const kx=Math.sqrt(Math.max(0,er1c.r))*Math.sin(t1);
+        // Medium 1: complex kz1
+        const k1c=csqrt(er1c); const k1mag=cabs(k1c);
+        const eta1c=cdiv({r:1,i:0},k1c);
+        const kz1sqC={r:er1c.r-kx*kx, i:er1c.i};
+        const kz1c=csqrtDecay(kz1sqC);
+        const cos1c=cdiv(kz1c,k1c); const cos1mag=cabs(cos1c);
+        const sin1mag=k1mag>1e-10?kx/k1mag:0;
+
+        let kz2c={r:0,i:0}, k2mag=1, GammaC, TauC, tauA, gm, phiG;
+        if(isPEC){
+            GammaC={r:-1,i:0}; TauC={r:0,i:0};
+        } else {
+            const k2c=csqrt(er2c); k2mag=cabs(k2c);
+            const eta2c=cdiv({r:1,i:0},k2c);
+            const kz2sqC={r:er2c.r-kx*kx, i:er2c.i};
+            kz2c=csqrtDecay(kz2sqC);
+            const cos2c=cdiv(kz2c,k2c);
+            let Z1,Z2;
+            if(pol==='s'){Z1=cdiv(eta1c,cos1c); Z2=cdiv(eta2c,cos2c);}
+            else         {Z1=cmul(eta1c,cos1c); Z2=cmul(eta2c,cos2c);}
+            GammaC=cdiv(csub(Z2,Z1),cadd(Z2,Z1));
+            TauC=cdiv(cadd(Z2,Z2),cadd(Z2,Z1));
+        }
+        gm=cabs(GammaC); phiG=carg(GammaC); tauA=cabs(TauC);
+        const kz2r=kz2c.r, kz2i=kz2c.i, kz2abs=cabs(kz2c);
+        const etaRat=k1mag>1e-10?k2mag/k1mag:1;
+
+        // Fixed z range: 6π each side (3 free-space wavelengths)
+        const ZR=6*Math.PI;
+        const Npt1=Math.min(2000,Math.max(600,Math.ceil(ZR/(2*Math.PI/Math.max(kz1c.r,0.1))*30)));
+        const Npt2=Math.min(2000,Math.max(600,Math.ceil(ZR/(2*Math.PI/Math.max(kz2abs,0.1))*30)));
+        const z1arr=Array.from({length:Npt1},(_,i)=>-ZR+i*ZR/(Npt1-1));
+        const z2arr=Array.from({length:Npt2},(_,i)=>i*ZR/(Npt2-1));
+
+        function med1A(z,sign){
+            const e1=Math.exp(kz1c.i*z), e2=Math.exp(-kz1c.i*z);
+            const c=Math.cos(kz1c.r*z), s=Math.sin(kz1c.r*z);
+            const p1={r:sign*e1*c, i:-sign*e1*s};   // sign*exp(-j*kz1c*z)
+            const p2={r:e2*c, i:e2*s};               // exp(+j*kz1c*z)
+            return cabs(cadd(p1,cmul(GammaC,p2)));
+        }
+        const D=z=>Math.exp(kz2i*z);
+
+        let f1_1,f1_2,f1_3, f2_1,f2_2,f2_3, lbls,clrs,stls;
+        if(pol==='s'){
+            f1_1=z=>med1A(z,1);
+            f1_2=z=>cos1mag*med1A(z,-1);
+            f1_3=z=>sin1mag*med1A(z,1);
+            if(isPEC){f2_1=f2_2=f2_3=_=>0;}
+            else{
+                f2_1=z=>tauA*D(z);
+                f2_2=z=>etaRat*(kz2abs/k2mag)*tauA*D(z);
+                f2_3=z=>sin1mag*tauA*D(z);
+            }
+            lbls=['Ey','η₁·Hx','η₁·Hz']; clrs=['#3b82f6','#ef4444','#22c55e']; stls=['solid','dot','dashdot'];
+        } else {
+            f1_1=z=>cos1mag*med1A(z,1);
+            f1_2=z=>med1A(z,-1);
+            f1_3=z=>sin1mag*med1A(z,-1);
+            if(isPEC){f2_1=f2_2=f2_3=_=>0;}
+            else{
+                const kxOvKz2=kz2abs>1e-10?kx/kz2abs:0;
+                const k2OvKz2=kz2abs>1e-10?k2mag/kz2abs:0;
+                f2_1=z=>cos1mag*tauA*D(z);
+                f2_2=z=>etaRat*k2OvKz2*cos1mag*tauA*D(z);
+                f2_3=z=>kxOvKz2*cos1mag*tauA*D(z);
+            }
+            lbls=['Ex','η₁·Hy','Ez']; clrs=['#ef4444','#3b82f6','#22c55e']; stls=['solid','dot','dashdot'];
+        }
+
+        // Auto-fit y-axis to data ──────────────────────────────────────────
+        if(emAutoFit){
+            let maxV=0;
+            const s1=Math.max(1,Math.floor(z1arr.length/120));
+            const s2=Math.max(1,Math.floor(z2arr.length/120));
+            z1arr.filter((_,i)=>i%s1===0).forEach(z=>maxV=Math.max(maxV,f1_1(z),f1_2(z),f1_3(z)));
+            z2arr.filter((_,i)=>i%s2===0).forEach(z=>maxV=Math.max(maxV,f2_1(z),f2_2(z),f2_3(z)));
+            emVP.yMin=0;
+            emVP.yMax=Math.max(maxV*1.18,0.5);
+        }
+
+        // PEC: grey out er2 input ────────────────────────────────────────────
+        {const er2El=document.getElementById('em-er2');
+         er2El.disabled=isPEC; er2El.style.opacity=isPEC?'0.35':'';
+         if(isPEC){er2El.placeholder='∞ (PEC — σ→∞)';}
+         else{er2El.placeholder='e.g. 61.04-j32.59';}}
+
+        // Draw ────────────────────────────────────────────────────────────────
+        const canvas=document.getElementById('emWaveCanvas');
+        const ctx=canvas.getContext('2d');
+        const W=canvas.width, H=canvas.height;
+        ctx.clearRect(0,0,W,H);
+        const pad={l:46,r:12,t:22,b:36};
+        const pW=W-pad.l-pad.r, pH=H-pad.t-pad.b;
+        // viewport-aware transforms
+        const txZ=z=>pad.l+(z-emVP.xMin)/(emVP.xMax-emVP.xMin)*pW;
+        const txV=v=>pad.t+pH*(1-(v-emVP.yMin)/(emVP.yMax-emVP.yMin));
+        const z0px=txZ(0); // boundary pixel
+
+        // Clip data area
+        ctx.save();
+        ctx.beginPath(); ctx.rect(pad.l,pad.t,pW,pH); ctx.clip();
+
+        // Region shading
+        ctx.fillStyle='rgba(255,45,85,0.04)';
+        ctx.fillRect(pad.l,pad.t,Math.max(0,z0px-pad.l),pH);
+        ctx.fillStyle='rgba(59,130,246,0.05)';
+        ctx.fillRect(Math.max(pad.l,z0px),pad.t,W-pad.r-Math.max(pad.l,z0px),pH);
+
+        // Viewport-adaptive grid
+        const yRange=emVP.yMax-emVP.yMin;
+        const yStep=yRange>4?1:yRange>2?0.5:yRange>1?0.25:0.1;
+        const yStart=Math.ceil(emVP.yMin/yStep)*yStep;
+        for(let yg=yStart;yg<=emVP.yMax+1e-10;yg+=yStep){
+            const gy=txV(yg); if(gy<pad.t||gy>pad.t+pH)continue;
+            ctx.strokeStyle='rgba(255,255,255,0.07)'; ctx.lineWidth=0.7;
+            ctx.beginPath(); ctx.moveTo(pad.l,gy); ctx.lineTo(W-pad.r,gy); ctx.stroke();
+        }
+
+        // Interface line
+        ctx.strokeStyle='rgba(255,255,255,0.35)'; ctx.lineWidth=1.2;
+        ctx.setLineDash([4,4]);
+        ctx.beginPath(); ctx.moveTo(z0px,pad.t); ctx.lineTo(z0px,pad.t+pH); ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Wave curves (med1 solid, med2 dashed)
+        [[z1arr,f1_1,f1_2,f1_3,false],[z2arr,f2_1,f2_2,f2_3,true]].forEach(([zarr,fa,fb,fc,dsh])=>{
+            [[fa,0],[fb,1],[fc,2]].forEach(([fn,ci])=>{
+                ctx.strokeStyle=clrs[ci];
+                ctx.lineWidth=stls[ci]==='solid'?1.8:1.4;
+                ctx.setLineDash(dsh?(stls[ci]==='dot'?[3,3]:[7,3,2,3]):[]);
+                ctx.beginPath();
+                let started=false;
+                zarr.forEach(z=>{
+                    const px=txZ(z), py=txV(fn(z));
+                    if(!started){ctx.moveTo(px,py);started=true;}else{ctx.lineTo(px,py);}
+                });
+                ctx.stroke();
+            });
+        });
+        ctx.setLineDash([]);
+        ctx.restore();  // end clip
+
+        // Region labels (outside clip)
+        ctx.font='10px IBM Plex Mono,monospace'; ctx.fillStyle='rgba(255,255,255,0.22)'; ctx.textAlign='center';
+        const m1cx=Math.min(z0px,W-pad.r), m2cx=Math.max(z0px,pad.l);
+        ctx.fillText('Medium 1  (z<0)',(pad.l+Math.min(z0px,W-pad.r))/2, pad.t+14);
+        if(z0px<W-pad.r) ctx.fillText('Medium 2  (z>0)',(Math.max(z0px,pad.l)+W-pad.r)/2, pad.t+14);
+
+        // Y-axis labels
+        for(let yg=yStart;yg<=emVP.yMax+1e-10;yg+=yStep){
+            const gy=txV(yg); if(gy<pad.t||gy>pad.t+pH)continue;
+            ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.font='9px IBM Plex Mono,monospace'; ctx.textAlign='right';
+            ctx.fillText(yg.toFixed(yStep<0.5?2:1),pad.l-4,gy+3);
+        }
+
+        // Axes
+        ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.lineWidth=0.8;
+        ctx.beginPath();
+        ctx.moveTo(pad.l,pad.t); ctx.lineTo(pad.l,pad.t+pH);
+        ctx.moveTo(pad.l,pad.t+pH); ctx.lineTo(W-pad.r,pad.t+pH); ctx.stroke();
+        ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.font='9px IBM Plex Mono,monospace';
+        ctx.textAlign='center'; ctx.fillText('→ depth (z / λ₀)',W/2,H-4);
+        ctx.save(); ctx.translate(11,pad.t+pH/2); ctx.rotate(-Math.PI/2);
+        ctx.fillText('|field| / E₀',0,0); ctx.restore();
+
+        // Hint
+        ctx.fillStyle='rgba(255,255,255,0.18)'; ctx.font='7.5px IBM Plex Mono,monospace'; ctx.textAlign='right';
+        ctx.fillText('scroll/drag/dblclick',W-pad.r,pad.t+pH+30);
+
+        // Legend div ─────────────────────────────────────────────────────────
+        const legDiv=document.getElementById('em-legend');
+        if(legDiv){
+            const sym={solid:'—',dot:'···',dashdot:'—·—'};
+            const spans=lbls.map((lb,i)=>`<span style="color:${clrs[i]};margin-right:.9rem">${sym[stls[i]]} ${lb}</span>`).join('');
+            legDiv.innerHTML=spans+'<span style="color:var(--g3);font-size:.65rem;margin-left:.5rem">— solid = Med 1 · dashed = Med 2</span>';
+        }
+
+        // Report values
+        document.getElementById('em-gm').textContent=gm.toFixed(4);
+        document.getElementById('em-phi').textContent=(phiG*180/Math.PI).toFixed(2)+'°';
+        document.getElementById('em-tau').textContent=tauA.toFixed(4);
+        // Brewster angle — p-pol only
+        const brewRow=document.getElementById('em-brew-row');
+        if(brewRow){
+            const showBrew=pol==='p'&&!isPEC&&er1isReal&&er2isReal;
+            brewRow.style.display=showBrew?'':'none';
+            if(showBrew) document.getElementById('em-brew').textContent=(Math.atan(Math.sqrt(er2c.r/er1c.r))*180/Math.PI).toFixed(2)+'°';
+        }
+        // Critical angle — only when n1>n2 and both lossless
+        const critRow=document.getElementById('em-crit-row');
+        if(critRow){
+            const showCrit=!isPEC&&er1isReal&&er2isReal&&er1c.r>er2c.r;
+            critRow.style.display=showCrit?'':'none';
+            if(showCrit) document.getElementById('em-crit').textContent=(Math.asin(Math.sqrt(er2c.r/er1c.r))*180/Math.PI).toFixed(2)+'°';
+        }
+    }
+
+
+    // ── SMITH CHART DEMO ──
+    function openSmithDemo(){
+        document.getElementById('smithModal').classList.add('open');
+        document.body.style.overflow='hidden';
+        initSmithZP();
+        runSmithDemo();
+    }
+    function closeSmithDemo(e,force){
+        if(force||e.target===document.getElementById('smithModal')){
+            document.getElementById('smithModal').classList.remove('open');
+            document.body.style.overflow='';
+        }
+    }
+    function applySmithPreset(){
+        const v=document.getElementById('sm-preset').value;
+        if(!v)return;
+        const re=document.getElementById('sm-re'),im=document.getElementById('sm-im');
+        if(v==='oc'){re.value=50;im.value=0;} // sentinel for open
+        else if(v==='sc'){re.value=0;im.value=0;}
+        else{const p=v.split(',');re.value=p[0];im.value=p[1];}
+        const modeEl=document.getElementById('sm-mode');
+        if(modeEl){modeEl.value='znl';toggleSmithMode();}
+        runSmithDemo();
+    }
+    function toggleSmithMode(){
+        const isV=document.getElementById('sm-mode').value==='vswr';
+        document.getElementById('sm-znl-group').style.display=isV?'none':'contents';
+        document.getElementById('sm-vswr-group').style.display=isV?'contents':'none';
+    }
+    function smFmt(r,i){
+        if(!isFinite(r)&&!isFinite(i))return'∞';
+        const is=i>=0?'+j':'-j';
+        return r.toFixed(4)+is+Math.abs(i).toFixed(4);
+    }
+
+    function drawSmithGrid(ctx,cx,cy,Rs){
+        const CW=ctx.canvas.width, CH=ctx.canvas.height;
+        ctx.save();
+        ctx.beginPath();ctx.arc(cx,cy,Rs,0,2*Math.PI);ctx.clip();
+
+        // Constant-R circles: center=(R/(1+R),0)*Rs+cx, radius=Rs/(1+R)
+        const Rvals=[0,0.2,0.5,1,2,5,10];
+        Rvals.forEach(R=>{
+            const cr=Rs/(1+R), ccx=cx+R/(1+R)*Rs;
+            ctx.strokeStyle=R===1?'rgba(255,255,255,0.22)':'rgba(255,255,255,0.11)';
+            ctx.lineWidth=R===1?1:0.8;
+            ctx.beginPath();ctx.arc(ccx,cy,cr,0,2*Math.PI);ctx.stroke();
+        });
+
+        // Constant-X arcs: center=(1,1/X)*Rs+{cx,cy}, radius=Rs/|X|
+        const Xvals=[0.2,0.5,1,2,5,10];
+        Xvals.forEach(X=>{
+            [X,-X].forEach(x=>{
+                const cr=Rs/Math.abs(x), ccx=cx+Rs, ccy=cy-Rs/x;
+                ctx.strokeStyle=Math.abs(x)===1?'rgba(255,255,255,0.18)':'rgba(255,255,255,0.1)';
+                ctx.lineWidth=Math.abs(x)===1?1:0.7;
+                ctx.beginPath();ctx.arc(ccx,ccy,cr,0,2*Math.PI);ctx.stroke();
+            });
+        });
+
+        // Outer circle (R=0 boundary)
+        ctx.strokeStyle='rgba(255,255,255,0.3)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.arc(cx,cy,Rs,0,2*Math.PI);ctx.stroke();
+
+        // Real axis
+        ctx.strokeStyle='rgba(255,255,255,0.18)';ctx.lineWidth=0.8;
+        ctx.beginPath();ctx.moveTo(cx-Rs,cy);ctx.lineTo(cx+Rs,cy);ctx.stroke();
+
+        ctx.restore();
+
+        // ── R labels along real axis ──
+        // Γ_real = (R-1)/(R+1) → pixel x = cx + Γ_real*Rs
+        ctx.font='8px IBM Plex Mono,monospace';
+        Rvals.forEach(R=>{
+            const gR=R===0?-1:(R-1)/(R+1);
+            const px=cx+gR*Rs;
+            if(px<6||px>CW-6)return;
+            ctx.fillStyle='rgba(255,255,255,0.33)';
+            ctx.textAlign='center';
+            ctx.fillText(R<1?R.toString():R.toString(), px, cy+13);
+        });
+        // SC / OC edge labels
+        ctx.font='7.5px IBM Plex Mono,monospace';
+        if(cx-Rs>4){ctx.fillStyle='rgba(255,255,255,0.28)';ctx.textAlign='center';ctx.fillText('SC',cx-Rs,cy+22);}
+        if(cx+Rs<CW-4){ctx.fillStyle='rgba(255,255,255,0.28)';ctx.textAlign='center';ctx.fillText('OC',cx+Rs,cy+22);}
+
+        // ── ±jX labels at unit-circle rim ──
+        // At r=0, x=X: ΓR=(X²-1)/(X²+1), ΓI=2X/(X²+1) — exactly on unit circle
+        // Offset outward by offPx pixels in the Γ direction
+        const Xlabels=[0.5,1,2,5];
+        const offPx=13;
+        ctx.font='7.5px IBM Plex Mono,monospace';
+        Xlabels.forEach(X=>{
+            const gR=(X*X-1)/(X*X+1), gI=2*X/(X*X+1);
+            const align=gR>0.25?'left':gR<-0.25?'right':'center';
+            // upper half: +jX (gI > 0 → canvas y decreases)
+            const ux=cx+gR*(Rs+offPx), uy=cy-gI*(Rs+offPx);
+            if(ux>6&&ux<CW-6&&uy>6&&uy<CH-6){
+                ctx.fillStyle='rgba(255,210,80,0.55)';
+                ctx.textAlign=align;
+                ctx.fillText('+j'+X,ux,uy);
+            }
+            // lower half: -jX
+            const lx=cx+gR*(Rs+offPx), ly=cy+gI*(Rs+offPx);
+            if(lx>6&&lx<CW-6&&ly>6&&ly<CH-6){
+                ctx.fillStyle='rgba(255,210,80,0.55)';
+                ctx.textAlign=align;
+                ctx.fillText('-j'+X,lx,ly);
+            }
+        });
+    }
+
+    function runSmithDemo(){
+        // ── Inputs ──────────────────────────────────────────────────────────
+        const mode=document.getElementById('sm-mode')?document.getElementById('sm-mode').value:'znl';
+        const Z0v=parseFloat(document.getElementById('sm-z0').value)||50;
+        const distStr=document.getElementById('sm-dist').value;
+        const dist=distStr===''?NaN:parseFloat(distStr);
+        const isOC=document.getElementById('sm-preset').value==='oc';
+
+        let rL,xL,GammaL,znL_re,znL_im;
+        if(mode==='vswr'){
+            const vswr_in=Math.max(1,parseFloat(document.getElementById('sm-vswr-in').value)||1);
+            const phase_in=parseFloat(document.getElementById('sm-phase-in').value)||0;
+            const gMag=(vswr_in-1)/(vswr_in+1);
+            GammaL={r:gMag*Math.cos(phase_in),i:gMag*Math.sin(phase_in)};
+            const znLc=cdiv(cadd({r:1,i:0},GammaL),csub({r:1,i:0},GammaL));
+            rL=znLc.r; xL=znLc.i; znL_re=rL; znL_im=xL;
+        } else {
+            const rL0=parseFloat(document.getElementById('sm-re').value)||0;
+            const xL0=parseFloat(document.getElementById('sm-im').value)||0;
+            rL=rL0; xL=xL0;
+            if(isOC||(!isFinite(rL)&&rL>0)){
+                GammaL={r:1,i:0}; znL_re=Infinity; znL_im=0;
+            } else if(rL===0&&xL===0){
+                GammaL={r:-1,i:0}; znL_re=0; znL_im=0;
+            } else {
+                const d=(rL+1)*(rL+1)+xL*xL;
+                GammaL={r:((rL-1)*(rL+1)+xL*xL)/d,i:2*xL/d};
+                znL_re=rL; znL_im=xL;
+            }
+        }
+
+        const gAbs=cabs(GammaL),gArg=carg(GammaL);
+        const gRe=GammaL.r,gIm=GammaL.i;
+        const vswr=gAbs>=1-1e-10?Infinity:(1+gAbs)/(1-gAbs);
+        const pct=(1-gAbs*gAbs)*100;
+
+        // Admittance
+        let yRe,yIm;
+        if(isOC||znL_re===Infinity){yRe=0;yIm=0;}
+        else if(znL_re===0&&znL_im===0){yRe=Infinity;yIm=Infinity;}
+        else{const d2=rL*rL+xL*xL;yRe=d2>1e-14?rL/d2:Infinity;yIm=d2>1e-14?-xL/d2:0;}
+        const GammaY={r:-gRe,i:-gIm};
+        const psiY=carg(GammaY);
+
+        // Stub matching
+        let s1d='N/A',s1b='N/A',s2d='N/A',s2b='N/A';
+        let Gp=null,Gm=null,X_stub=null;
+        if(gAbs<1-1e-10&&isFinite(vswr)){
+            X_stub=2*gAbs/Math.sqrt(1-gAbs*gAbs);
+            const b2=X_stub*X_stub;
+            Gp={r:b2/(4+b2),i: 2*X_stub/(4+b2)};
+            Gm={r:b2/(4+b2),i:-2*X_stub/(4+b2)};
+            const wrap=x=>((x%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
+            const wH=x=>{let v=wrap(x)/(4*Math.PI);return v>0.5?v-0.5:v;};
+            const d1=wH(psiY-carg(Gp)),d2=wH(psiY-carg(Gm));
+            const [da,Ga,db,Gb]=d1<=d2?[d1,Gp,d2,Gm]:[d2,Gm,d1,Gp];
+            const bVal1=d1<=d2?-X_stub:X_stub,bVal2=d1<=d2?X_stub:-X_stub;
+            s1d=da.toFixed(4)+'λ'; s1b=(bVal1>=0?'+j':'-j')+Math.abs(bVal1).toFixed(4);
+            s2d=db.toFixed(4)+'λ'; s2b=(bVal2>=0?'+j':'-j')+Math.abs(bVal2).toFixed(4);
+            Gp=Ga; Gm=Gb;
+        }
+
+        // Zin
+        const d=isNaN(dist)?0:Math.abs(dist);  // magnitude only — sign ignored, toward generator
+        let zinRe=NaN,zinIm=NaN,GammaIn=null;
+        if(!isNaN(dist)){
+            const ang=4*Math.PI*d;   // CCW rotation = professor's toward-generator convention
+            GammaIn=cmul(GammaL,{r:Math.cos(ang),i:Math.sin(ang)});
+            const dq=(1-GammaIn.r)*(1-GammaIn.r)+GammaIn.i*GammaIn.i;
+            if(dq>1e-14){const zin=cdiv(cadd({r:1,i:0},GammaIn),csub({r:1,i:0},GammaIn));zinRe=zin.r;zinIm=zin.i;}
+        }
+
+        // ── Smith Chart ──────────────────────────────────────────────────────
+        const sc=document.getElementById('smithCanvas');
+        const sctx=sc.getContext('2d');
+        const SW=sc.width,SH=sc.height;
+        sctx.clearRect(0,0,SW,SH);
+        // Viewport-derived cx/cy/Rs
+        const range=2*smVP.hr;
+        const cx=((smVP.hr-smVP.cx0)/range)*SW;
+        const cy=((smVP.hr+smVP.cy0)/range)*SH;
+        const Rs=SW/range;
+
+        drawSmithGrid(sctx,cx,cy,Rs);
+
+        // VSWR circle
+        sctx.strokeStyle='rgba(59,130,246,0.55)';sctx.lineWidth=1.4;
+        sctx.setLineDash([6,4]);
+        sctx.beginPath();sctx.arc(cx,cy,gAbs*Rs,0,2*Math.PI);sctx.stroke();
+        sctx.setLineDash([]);
+
+        // Stub matching
+        if(Gp&&Gm){
+            [[Gp,'#34d399'],[Gm,'#fbbf24']].forEach(([G,col])=>{
+                const sx=cx+G.r*Rs,sy=cy-G.i*Rs;
+                sctx.strokeStyle=col;sctx.lineWidth=1.5;sctx.fillStyle=col+'44';
+                sctx.beginPath();sctx.arc(sx,sy,6,0,2*Math.PI);sctx.fill();sctx.stroke();
+            });
+        }
+
+        // Admittance point (red square)
+        const ax=cx+GammaY.r*Rs,ay=cy-GammaY.i*Rs;
+        sctx.fillStyle='#ff2d55';sctx.fillRect(ax-5,ay-5,10,10);
+        sctx.fillStyle='rgba(255,45,85,0.7)';sctx.font='9px IBM Plex Mono,monospace';sctx.textAlign='left';
+        sctx.fillText('Y',ax+8,ay+3);
+
+        // Zin point (purple X)
+        if(GammaIn&&isFinite(zinRe)){
+            const ix=cx+GammaIn.r*Rs,iy=cy-GammaIn.i*Rs;
+            sctx.strokeStyle='#a78bfa';sctx.lineWidth=2;
+            sctx.beginPath();sctx.moveTo(ix-6,iy-6);sctx.lineTo(ix+6,iy+6);
+            sctx.moveTo(ix+6,iy-6);sctx.lineTo(ix-6,iy+6);sctx.stroke();
+            sctx.fillStyle='rgba(167,139,250,0.7)';sctx.font='9px IBM Plex Mono,monospace';sctx.textAlign='left';
+            sctx.fillText('Zin',ix+8,iy+3);
+        }
+
+        // Load point (blue circle)
+        if(!isOC&&isFinite(gRe)){
+            const lx=cx+gRe*Rs,ly=cy-gIm*Rs;
+            sctx.fillStyle='#3b82f6';sctx.beginPath();sctx.arc(lx,ly,6,0,2*Math.PI);sctx.fill();
+            sctx.fillStyle='rgba(59,130,246,0.8)';sctx.font='9px IBM Plex Mono,monospace';sctx.textAlign='left';
+            sctx.fillText('Z',lx+8,ly+3);
+        } else {
+            sctx.fillStyle='#3b82f6';sctx.beginPath();sctx.arc(cx+Rs,cy,6,0,2*Math.PI);sctx.fill();
+        }
+
+        // Hint
+        sctx.fillStyle='rgba(255,255,255,0.18)';sctx.font='7.5px IBM Plex Mono,monospace';sctx.textAlign='right';
+        sctx.fillText('scroll/drag/dblclick',SW-4,SH-4);
+
+        // ── Standing Wave ────────────────────────────────────────────────────
+        const wc=document.getElementById('smithWaveCanvas');
+        const wctx=wc.getContext('2d');
+        const WW=wc.width,WH=wc.height;
+        wctx.clearRect(0,0,WW,WH);
+        const wpad={l:44,r:14,t:18,b:32};
+        const wW=WW-wpad.l-wpad.r, wH=WH-wpad.t-wpad.b;
+        const Ns=800;
+        // Compute Vmag over extended range for panning
+        const sRange=smWVP.xMax-smWVP.xMin;
+        const sArr=Array.from({length:Ns},(_,i)=>smWVP.xMin+i/(Ns-1)*sRange);
+        const Vmag=sArr.map(s=>{
+            const ang=4*Math.PI*s;  // s∈[-1,0]: 0=load, -d=toward generator
+            return cabs(cadd({r:1,i:0},cmul(GammaL,{r:Math.cos(ang),i:Math.sin(ang)})));
+        });
+        const txS=s=>wpad.l+(s-smWVP.xMin)/sRange*wW;
+        const txWV=v=>wpad.t+wH*(1-(v-smWVP.yMin)/(smWVP.yMax-smWVP.yMin));
+
+        // Clip
+        wctx.save();
+        wctx.beginPath();wctx.rect(wpad.l,wpad.t,wW,wH);wctx.clip();
+
+        wctx.fillStyle='rgba(255,255,255,0.03)';
+        wctx.fillRect(wpad.l,wpad.t,wW,wH);
+
+        // Grid
+        const vyRange=smWVP.yMax-smWVP.yMin;
+        const vyStep=vyRange>4?1:vyRange>2?0.5:0.25;
+        for(let yg=Math.ceil(smWVP.yMin/vyStep)*vyStep;yg<=smWVP.yMax+1e-10;yg+=vyStep){
+            const gy=txWV(yg);if(gy<wpad.t||gy>wpad.t+wH)continue;
+            wctx.strokeStyle='rgba(255,255,255,0.07)';wctx.lineWidth=0.7;
+            wctx.beginPath();wctx.moveTo(wpad.l,gy);wctx.lineTo(WW-wpad.r,gy);wctx.stroke();
+        }
+
+        // Standing wave curve
+        wctx.strokeStyle='#3b82f6';wctx.lineWidth=1.8;
+        wctx.beginPath();
+        sArr.forEach((s,i)=>{const x=txS(s),y=txWV(Vmag[i]);i===0?wctx.moveTo(x,y):wctx.lineTo(x,y);});
+        wctx.stroke();
+
+        // Vmax/Vmin from full [0,1] range
+        const VmagFull=Array.from({length:200},(_,i)=>{const s=-i/199;const ang=-4*Math.PI*s;return cabs(cadd({r:1,i:0},cmul(GammaL,{r:Math.cos(ang),i:Math.sin(ang)})));});
+        const Vmax=Math.max(...VmagFull),Vmin=Math.min(...VmagFull);
+        const Vmx_y=txWV(Vmax),Vmn_y=txWV(Vmin);
+        wctx.strokeStyle='rgba(255,255,255,0.25)';wctx.lineWidth=0.8;
+        wctx.setLineDash([4,3]);
+        [[Vmax,Vmx_y],[Vmin,Vmn_y]].forEach(([,gy])=>{wctx.beginPath();wctx.moveTo(wpad.l,gy);wctx.lineTo(WW-wpad.r,gy);wctx.stroke();});
+        wctx.setLineDash([]);
+
+        // Zin marker on standing wave (s0 in [-0.5,0] for new axis)
+        if(!isNaN(dist)){
+            const s0=-(d%0.5);               // d>0 → s0∈[-0.5,0] on standing wave axis
+            const zinX=txS(s0);
+            const zinVy=txWV(cabs(cadd({r:1,i:0},cmul(GammaL,{r:Math.cos(-4*Math.PI*d),i:Math.sin(-4*Math.PI*d)}))));
+            wctx.strokeStyle='#a78bfa';wctx.lineWidth=1;wctx.setLineDash([3,3]);
+            wctx.beginPath();wctx.moveTo(zinX,wpad.t);wctx.lineTo(zinX,wpad.t+wH);wctx.stroke();
+            wctx.setLineDash([]);
+            wctx.fillStyle='#a78bfa';wctx.beginPath();wctx.arc(zinX,zinVy,4,0,2*Math.PI);wctx.fill();
+        }
+
+        wctx.restore();  // end clip
+
+        // Axes & labels
+        wctx.strokeStyle='rgba(255,255,255,0.2)';wctx.lineWidth=0.8;
+        wctx.beginPath();
+        wctx.moveTo(wpad.l,wpad.t);wctx.lineTo(wpad.l,wpad.t+wH);
+        wctx.moveTo(wpad.l,wpad.t+wH);wctx.lineTo(WW-wpad.r,wpad.t+wH);wctx.stroke();
+        wctx.fillStyle='rgba(255,255,255,0.3)';wctx.font='8px IBM Plex Mono,monospace';wctx.textAlign='center';
+        // Viewport-adaptive x labels
+        const xStep=sRange>2?0.5:sRange>1?0.25:0.1;
+        for(let xs=Math.ceil(smWVP.xMin/xStep)*xStep;xs<=smWVP.xMax+1e-10;xs+=xStep){
+            const px=txS(xs);if(px<wpad.l||px>WW-wpad.r)continue;
+            wctx.fillText(xs.toFixed(2)+'λ',px,wpad.t+wH+14);
+        }
+        // Y labels
+        for(let yg=Math.ceil(smWVP.yMin/vyStep)*vyStep;yg<=smWVP.yMax+1e-10;yg+=vyStep){
+            const gy=txWV(yg);if(gy<wpad.t||gy>wpad.t+wH)continue;
+            wctx.fillStyle='rgba(255,255,255,0.28)';wctx.textAlign='right';
+            wctx.fillText(yg.toFixed(1),wpad.l-4,gy+3);
+        }
+        wctx.fillStyle='rgba(255,255,255,0.3)';wctx.textAlign='center';
+        wctx.fillText('← toward generator (λ)  ·  0 = load →',WW/2,wpad.t+wH+26);
+        wctx.save();wctx.translate(10,wpad.t+wH/2);wctx.rotate(-Math.PI/2);
+        wctx.fillText('|V|/V⁺',0,0);wctx.restore();
+        // Vmax/Vmin annotations
+        wctx.fillStyle='rgba(255,255,255,0.35)';wctx.font='8px IBM Plex Mono,monospace';wctx.textAlign='left';
+        if(Vmx_y>=wpad.t&&Vmx_y<=wpad.t+wH) wctx.fillText('Vmax='+Vmax.toFixed(3),wpad.l+3,Vmx_y-3);
+        if(Vmn_y>=wpad.t&&Vmn_y<=wpad.t+wH) wctx.fillText('Vmin='+Vmin.toFixed(3),wpad.l+3,Vmn_y+10);
+        // Hint
+        wctx.fillStyle='rgba(255,255,255,0.18)';wctx.font='7.5px IBM Plex Mono,monospace';wctx.textAlign='right';
+        wctx.fillText('scroll/drag/dblclick',WW-wpad.r,wpad.t+wH+30);
+
+        // ── Side panel ──────────────────────────────────────────────────────
+        document.getElementById('sm-znl').textContent=isOC?'∞':smFmt(rL,xL);
+        document.getElementById('sm-ynl').textContent=isFinite(yRe)?smFmt(yRe,yIm):'∞';
+        document.getElementById('sm-gl').textContent=smFmt(gRe,gIm);
+        document.getElementById('sm-gmag').textContent=gAbs.toFixed(4)+' / '+(gArg*180/Math.PI).toFixed(2)+'°';
+        document.getElementById('sm-vswr').textContent=isFinite(vswr)?vswr.toFixed(3):'∞';
+        document.getElementById('sm-pwr').textContent=pct.toFixed(2)+'%';
+        document.getElementById('sm-zin').textContent=isNaN(dist)?'—':(isFinite(zinRe)?smFmt(zinRe,zinIm):'—');
+        document.getElementById('sm-s1d').textContent=s1d;document.getElementById('sm-s1b').textContent=s1b;
+        document.getElementById('sm-s2d').textContent=s2d;document.getElementById('sm-s2b').textContent=s2b;
+
+        // ── Smith chart legend ──────────────────────────────────────────────
+        const sLeg=document.getElementById('smith-legend');
+        if(sLeg){
+            const dot=(col,shape)=>`<span style="display:inline-block;width:10px;height:10px;border-radius:${shape==='sq'?'2px':'50%'};background:${col};margin-right:3px;vertical-align:middle"></span>`;
+            const x=(col)=>`<span style="color:${col};font-size:.85rem;margin-right:3px;vertical-align:middle">✕</span>`;
+            let html=`
+                <span style="display:flex;align-items:center;gap:3px">${dot('#3b82f6','circ')} Load Z</span>
+                <span style="display:flex;align-items:center;gap:3px">${dot('#ff2d55','sq')} Load Y</span>`;
+            if(!isNaN(dist)&&isFinite(zinRe)) html+=`<span style="display:flex;align-items:center;gap:3px">${x('#a78bfa')} Zin&nbsp;@&nbsp;d</span>`;
+            if(Gp&&Gm) html+=`
+                <span style="display:flex;align-items:center;gap:3px">${dot('#34d399','circ')} Stub sol. 1</span>
+                <span style="display:flex;align-items:center;gap:3px">${dot('#fbbf24','circ')} Stub sol. 2</span>`;
+            html+=`<span style="display:flex;align-items:center;gap:3px;margin-left:auto;opacity:.5">
+                <span style="display:inline-block;width:18px;height:2px;background:#3b82f6;margin-right:3px;border-top:2px dashed #3b82f6;box-sizing:border-box"></span>VSWR circle</span>`;
+            sLeg.innerHTML=html;
+        }
+
+        // ── Standing wave legend ────────────────────────────────────────────
+        const wLeg=document.getElementById('smith-wave-legend');
+        if(wLeg){
+            const line=(col,dash)=>`<span style="display:inline-block;width:22px;height:2px;background:${dash?'transparent':''+col};border-top:2px ${dash||'solid'} ${col};margin-right:4px;vertical-align:middle"></span>`;
+            let html=`
+                <span style="display:flex;align-items:center">${line('#3b82f6','')} |V|/V⁺ (standing wave)</span>
+                <span style="display:flex;align-items:center">${line('rgba(255,255,255,0.5)','dashed')} Vmax / Vmin</span>`;
+            if(!isNaN(dist)) html+=`<span style="display:flex;align-items:center">${line('#a78bfa','dashed')} Zin position</span>`;
+            wLeg.innerHTML=html;
+        }
+    }
+
+
+    // ── ANTENNA ARRAY DEMO ──
+    function openArrayDemo(){
+        document.getElementById('arrayModal').classList.add('open');
+        document.body.style.overflow='hidden'; runArrayDemo();
+    }
+    function closeArrayDemo(e,force){
+        if(force||e.target===document.getElementById('arrayModal')){
+            document.getElementById('arrayModal').classList.remove('open');
+            document.body.style.overflow='';
+        }
+    }
+
+    function runArrayDemo(){
+        const N=Math.max(2,parseInt(document.getElementById('arr-N').value)||2);
+        const d=parseFloat(document.getElementById('arr-d').value)||0.5;
+        const psiDeg=parseFloat(document.getElementById('arr-psi').value)||0;
+        const psi=psiDeg*Math.PI/180;
+
+        const nPts=20001;
+        const phi=Array.from({length:nPts},(_,i)=>i*2*Math.PI/(nPts-1));
+        const kd=2*Math.PI*d;
+
+        // Array factor magnitude following MATLAB exactly
+        const Fmag=phi.map(p=>{
+            const u=kd*Math.sin(p)+psi;
+            const den=Math.sin(u/2);
+            return Math.abs(den)<1e-10?N:Math.abs(Math.sin(N*u/2)/den);
+        });
+        const Fpeak=Math.max(...Fmag);
+        const Fn=Fmag.map(f=>f/Fpeak);
+        const target=1/Math.sqrt(2); // -3dB normalized
+
+        // HPBW: MATLAB approach using extended array
+        const phi_ext=[...phi.map(p=>p-2*Math.PI),...phi,...phi.map(p=>p+2*Math.PI)];
+        const Fn_ext=[...Fn,...Fn,...Fn];
+        // Find global max in center section (indices nPts to 2*nPts)
+        let imax_center=nPts;
+        for(let i=nPts;i<2*nPts;i++) if(Fn_ext[i]>Fn_ext[imax_center]) imax_center=i;
+
+        // Search left
+        let iL=imax_center;
+        while(iL>0&&Fn_ext[iL]>target+1e-6) iL--;
+        let phiL;
+        if(iL===0){phiL=NaN;}
+        else if(Math.abs(Fn_ext[iL]-target)<=1e-6){phiL=phi_ext[iL];}
+        else{
+            const t=(target-Fn_ext[iL])/(Fn_ext[iL+1]-Fn_ext[iL]);
+            phiL=phi_ext[iL]+t*(phi_ext[iL+1]-phi_ext[iL]);
+        }
+
+        // Search right
+        let iR=imax_center;
+        while(iR<phi_ext.length-1&&Fn_ext[iR]>target+1e-6) iR++;
+        let phiR;
+        if(iR===phi_ext.length-1){phiR=NaN;}
+        else if(Math.abs(Fn_ext[iR]-target)<=1e-6){phiR=phi_ext[iR];}
+        else{
+            const t=(target-Fn_ext[iR-1])/(Fn_ext[iR]-Fn_ext[iR-1]);
+            phiR=phi_ext[iR-1]+t*(phi_ext[iR]-phi_ext[iR-1]);
+        }
+
+        const HPBW=(isNaN(phiL)||isNaN(phiR))?NaN:(phiR-phiL)*180/Math.PI;
+        // Main beam angle (in center section)
+        const phiMain=phi_ext[imax_center];
+
+        // Draw
+        const canvas=document.getElementById('arrayCanvas');
+        const ctx=canvas.getContext('2d');
+        const W=canvas.width,H=canvas.height;
+        ctx.clearRect(0,0,W,H);
+        const cx=W/2,cy=H/2;
+        const Rc=W*0.38; // radius for |F|=N (peak)
+        const scl=Rc/Fpeak; // pixels per unit of |F|
+
+        // Background circles with magnitude labels
+        const nCircles=4;
+        for(let k=1;k<=nCircles;k++){
+            const r=Rc*k/nCircles;
+            const val=(Fpeak*k/nCircles).toFixed(1);
+            ctx.strokeStyle='rgba(255,255,255,'+(k===nCircles?0.15:0.07)+')';
+            ctx.lineWidth=k===nCircles?1:0.7;
+            ctx.beginPath();ctx.arc(cx,cy,r,0,2*Math.PI);ctx.stroke();
+            // Label at top of each circle
+            ctx.fillStyle='rgba(255,255,255,0.25)';
+            ctx.font='8px IBM Plex Mono,monospace';ctx.textAlign='center';
+            ctx.fillText(val,cx,cy-r-3);
+        }
+
+        // Angle spokes every 30° with degree labels
+        for(let a=0;a<360;a+=30){
+            const rad=a*Math.PI/180;
+            ctx.strokeStyle='rgba(255,255,255,0.07)';ctx.lineWidth=0.7;
+            ctx.beginPath();ctx.moveTo(cx,cy);
+            ctx.lineTo(cx+Rc*Math.cos(rad),cy-Rc*Math.sin(rad));ctx.stroke();
+            // Degree labels at outer edge
+            const lx=cx+(Rc+22)*Math.cos(rad);
+            const ly=cy-(Rc+22)*Math.sin(rad);
+            ctx.fillStyle='rgba(255,255,255,0.35)';
+            ctx.font='9px IBM Plex Mono,monospace';ctx.textAlign='center';
+            // Adjust vertical alignment
+            const base=(Math.abs(Math.sin(rad))<0.3)?4:
+                        (Math.sin(rad)>0.3?-2:10);
+            ctx.fillText(a+'°',lx,ly+base);
+        }
+
+        // -3dB circle (normalized)
+        ctx.strokeStyle='rgba(59,130,246,0.2)';ctx.lineWidth=1;
+        ctx.setLineDash([4,3]);
+        ctx.beginPath();ctx.arc(cx,cy,Rc*target,0,2*Math.PI);ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Pattern fill + stroke
+        ctx.beginPath();
+        phi.forEach((p,i)=>{
+            const r=Rc*Fn[i];
+            const x=cx+r*Math.cos(p),y=cy-r*Math.sin(p);
+            i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+        });
+        ctx.closePath();
+        ctx.fillStyle='rgba(59,130,246,0.09)';ctx.fill();
+        ctx.strokeStyle='#3b82f6';ctx.lineWidth=1.8;ctx.stroke();
+
+        // HPBW dashed lines from center to outer circle edge at phiL and phiR
+        if(!isNaN(HPBW)&&HPBW>0&&HPBW<355){
+            const phiL_mod=((phiL%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
+            const phiR_mod=((phiR%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
+            ctx.strokeStyle='rgba(255,45,85,0.7)';ctx.lineWidth=1.3;
+            ctx.setLineDash([3,3]);
+            [phiL_mod,phiR_mod].forEach(p=>{
+                ctx.beginPath();ctx.moveTo(cx,cy);
+                ctx.lineTo(cx+Rc*Math.cos(p),cy-Rc*Math.sin(p));ctx.stroke();
+            });
+            ctx.setLineDash([]);
+            // Dots at half-power points on the pattern
+            ctx.fillStyle='#ff2d55';
+            [phiL_mod,phiR_mod].forEach(p=>{
+                // Find the Fn value at this angle (use closest index)
+                const idx=Math.round(((p%(2*Math.PI))+2*Math.PI)%(2*Math.PI)/(2*Math.PI)*(nPts-1))%nPts;
+                const r=Rc*Fn[idx];
+                ctx.beginPath();ctx.arc(cx+r*Math.cos(p),cy-r*Math.sin(p),4,0,2*Math.PI);ctx.fill();
+            });
+        }
+
+        // Axes (lighter, behind labels)
+        ctx.strokeStyle='rgba(255,255,255,0.15)';ctx.lineWidth=0.8;
+        ctx.beginPath();
+        ctx.moveTo(cx-Rc,cy);ctx.lineTo(cx+Rc,cy);
+        ctx.moveTo(cx,cy-Rc);ctx.lineTo(cx,cy+Rc);ctx.stroke();
+
+        // Count side lobes (local maxima > 0.05 excluding main lobe)
+        let slCount=0;
+        for(let i=1;i<nPts-1;i++){
+            if(Fn[i]>Fn[i-1]&&Fn[i]>Fn[i+1]&&Fn[i]>0.05) slCount++;
+        }
+
+        // Results
+        document.getElementById('arr-peak').textContent=Fpeak.toFixed(2)+' (= N)';
+        document.getElementById('arr-hpbw').textContent=(!isNaN(HPBW)&&HPBW>0&&HPBW<355)?HPBW.toFixed(2)+'°':'N/A';
+        const mainDeg=((phiMain*180/Math.PI)%360+360)%360;
+        document.getElementById('arr-gamma').textContent=mainDeg.toFixed(1)+'°';
+        document.getElementById('arr-sidelobes').textContent=Math.max(0,slCount-1);
+    }
+
+</script>
+<!-- EM Wave Interface Demo Modal -->
+<div class="demo-modal" id="emWaveModal" onclick="closeEMWaveDemo(event)">
+    <div class="demo-inner">
+        <button class="demo-close" onclick="closeEMWaveDemo(event,true)">&#x2715;</button>
+        <div class="demo-title">EM Wave Interface Visualizer</div>
+        <div class="demo-sub">ECE 3317 // Normalized Field Components vs Depth at Material Interface</div>
+        <div class="demo-ctrl-row">
+            <div class="demo-ctrl">
+                <label>Angle &theta;<sub>1</sub> (deg)</label>
+                <div class="dual-input-row">
+                    <input type="range" id="em-angle-sl" min="1" max="89" value="60" oninput="document.getElementById('em-angle').value=this.value;runEMWaveDemo()">
+                    <input type="number" id="em-angle" value="60" min="1" max="89" step="1" oninput="document.getElementById('em-angle-sl').value=this.value;runEMWaveDemo()" style="width:62px">
+                    <span class="unit-lbl">°</span>
+                </div>
+            </div>
+            <div class="demo-ctrl">
+                <label>Med 1 &epsilon;<sub>r1</sub> (complex ok)</label>
+                <input type="text" id="em-er1" value="1" placeholder="e.g. 1-0.1j" oninput="runEMWaveDemo()" style="width:110px">
+            </div>
+            <div class="demo-ctrl">
+                <label>Med 2 &epsilon;<sub>r2</sub> (complex ok)</label>
+                <input type="text" id="em-er2" value="6.5" placeholder="e.g. 78-10j" oninput="runEMWaveDemo()" style="width:110px">
+            </div>
+            <div class="demo-ctrl" style="justify-content:flex-end">
+                <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
+                    <input type="checkbox" id="em-pec" onchange="runEMWaveDemo()" style="width:auto;accent-color:var(--red)"> PEC (medium 2)
+                </label>
+            </div>
+            <div class="demo-ctrl">
+                <label>Polarization</label>
+                <select id="em-pol" onchange="runEMWaveDemo()">
+                    <option value="s">s-pol (TE / Perpendicular)</option>
+                    <option value="p">p-pol (TM / Parallel)</option>
+                </select>
+            </div>
+        </div>
+        <div class="demo-canvas-box">
+            <canvas id="emWaveCanvas" width="700" height="310"></canvas>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:.4rem;gap:.6rem">
+            <div id="em-legend" style="display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .8rem;padding:.35rem .7rem;background:var(--deep);border-radius:6px;font-family:var(--fm);font-size:.72rem;flex:1;min-height:1.6rem"></div>
+            <button class="btn btn-out btn-sm" onclick="resetEMView()" style="padding:.25rem .7rem;font-size:.7rem;white-space:nowrap;flex-shrink:0">&#10227; Reset View</button>
+        </div>
+        <div class="demo-kv-row">
+            <div class="demo-kv"><div class="demo-k">Refl. coeff. |&Gamma;|</div><div class="demo-v" id="em-gm">&mdash;</div></div>
+            <div class="demo-kv"><div class="demo-k">Refl. phase &ang;&Gamma;</div><div class="demo-v" id="em-phi">&mdash;</div></div>
+            <div class="demo-kv"><div class="demo-k">Trans. coeff. |&tau;|</div><div class="demo-v" id="em-tau">&mdash;</div></div>
+            <div class="demo-kv" id="em-brew-row" style="display:none"><div class="demo-k">Brewster angle (p-pol only)</div><div class="demo-v" id="em-brew">&mdash;</div></div>
+            <div class="demo-kv" id="em-crit-row" style="display:none"><div class="demo-k">Critical angle (n<sub>1</sub>&gt;n<sub>2</sub>, lossless)</div><div class="demo-v" id="em-crit">&mdash;</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Smith Chart Demo Modal -->
+<div class="demo-modal" id="smithModal" onclick="closeSmithDemo(event)">
+    <div class="demo-inner" style="max-width:900px">
+        <button class="demo-close" onclick="closeSmithDemo(event,true)">&#x2715;</button>
+        <div class="demo-title">Smith Chart Calculator</div>
+        <div class="demo-sub">ECE 3317 // Transmission Line Impedance, VSWR &amp; Single-Stub Matching</div>
+        <div class="demo-ctrl-row">
+            <div class="demo-ctrl">
+                <label>Preset load</label>
+                <select id="sm-preset" onchange="applySmithPreset()">
+                    <option value="">Custom</option>
+                    <option value="oc">Open circuit (z=&infin;)</option>
+                    <option value="sc">Short circuit (z=0)</option>
+                </select>
+            </div>
+            <div class="demo-ctrl">
+                <label>Input mode</label>
+                <select id="sm-mode" onchange="toggleSmithMode();runSmithDemo()">
+                    <option value="znl">z<sub>nL</sub> (norm. impedance)</option>
+                    <option value="vswr">VSWR + &ang;&Gamma; (rad)</option>
+                </select>
+            </div>
+            <div id="sm-znl-group" style="display:contents">
+                <div class="demo-ctrl">
+                    <label>Re(z<sub>nL</sub>)</label>
+                    <input type="number" id="sm-re" value="1" min="0" max="20" step="0.1" oninput="document.getElementById('sm-preset').value='';runSmithDemo()">
+                </div>
+                <div class="demo-ctrl">
+                    <label>Im(z<sub>nL</sub>)</label>
+                    <input type="number" id="sm-im" value="2" min="-20" max="20" step="0.1" oninput="document.getElementById('sm-preset').value='';runSmithDemo()">
+                </div>
+            </div>
+            <div id="sm-vswr-group" style="display:none">
+                <div class="demo-ctrl">
+                    <label>VSWR (&ge;1)</label>
+                    <input type="number" id="sm-vswr-in" value="3" min="1" step="0.1" oninput="runSmithDemo()" style="width:80px">
+                </div>
+                <div class="demo-ctrl" style="margin-left:.5rem">
+                    <label>&ang;&Gamma; (radians)</label>
+                    <input type="number" id="sm-phase-in" value="0.785" min="-3.1416" max="3.1416" step="0.05" oninput="runSmithDemo()" style="width:90px">
+                </div>
+            </div>
+            <div class="demo-ctrl">
+                <label>Z<sub>0</sub> (&Omega;)</label>
+                <input type="number" id="sm-z0" value="50" min="1" max="500" step="1" oninput="runSmithDemo()">
+            </div>
+            <div class="demo-ctrl">
+                <label>Distance from load toward generator (&lambda;) &mdash; enter any sign, magnitude used &rarr; Z<sub>in</sub></label>
+                <input type="number" id="sm-dist" value="" min="-4" max="4" step="0.0625" placeholder="e.g. 0.0625" oninput="runSmithDemo()" style="width:120px">
+            </div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start">
+            <div style="display:flex;flex-direction:column;gap:.4rem;flex:0 0 auto">
+                <div style="display:flex;align-items:center;justify-content:space-between;width:420px">
+                    <span style="font-family:var(--fm);font-size:.62rem;color:var(--g3);letter-spacing:.12em;text-transform:uppercase">Smith Chart</span>
+                    <button class="btn btn-out btn-sm" onclick="resetSmithView()" style="padding:.25rem .7rem;font-size:.68rem;white-space:nowrap;flex-shrink:0">&#10227; Reset View</button>
+                </div>
+                <div class="demo-canvas-box">
+                    <canvas id="smithCanvas" width="420" height="420"></canvas>
+                </div>
+                <div id="smith-legend" style="display:flex;flex-wrap:wrap;gap:.25rem .7rem;padding:.35rem .6rem;background:var(--deep);border-radius:6px;font-family:var(--fm);font-size:.7rem;width:420px;box-sizing:border-box"></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;width:420px;margin-top:.25rem">
+                    <span style="font-family:var(--fm);font-size:.62rem;color:var(--g3);letter-spacing:.12em;text-transform:uppercase">Standing Wave</span>
+                    <button class="btn btn-out btn-sm" onclick="resetSmithWaveView()" style="padding:.25rem .7rem;font-size:.68rem;white-space:nowrap;flex-shrink:0">&#10227; Reset View</button>
+                </div>
+                <div class="demo-canvas-box">
+                    <canvas id="smithWaveCanvas" width="420" height="155"></canvas>
+                </div>
+                <div id="smith-wave-legend" style="display:flex;flex-wrap:wrap;gap:.25rem .7rem;padding:.35rem .6rem;background:var(--deep);border-radius:6px;font-family:var(--fm);font-size:.7rem;width:420px;box-sizing:border-box"></div>
+            </div>
+            <div class="demo-side-panel" style="flex:1;min-width:200px;gap:.45rem">
+                <div class="demo-kv">
+                    <div class="demo-k"><span style="display:inline-block;width:9px;height:9px;background:#3b82f6;border-radius:50%;vertical-align:middle;margin-right:4px"></span>z<sub>nL</sub></div>
+                    <div class="demo-v" id="sm-znl">&mdash;</div>
+                </div>
+                <div class="demo-kv">
+                    <div class="demo-k"><span style="display:inline-block;width:9px;height:9px;background:#ff2d55;border-radius:2px;vertical-align:middle;margin-right:4px"></span>y<sub>nL</sub></div>
+                    <div class="demo-v" id="sm-ynl">&mdash;</div>
+                </div>
+                <div class="demo-kv"><div class="demo-k">&Gamma;<sub>L</sub></div><div class="demo-v" id="sm-gl">&mdash;</div></div>
+                <div class="demo-kv"><div class="demo-k">|&Gamma;<sub>L</sub>| / &ang;&Gamma;<sub>L</sub></div><div class="demo-v" id="sm-gmag">&mdash;</div></div>
+                <div class="demo-kv"><div class="demo-k">VSWR</div><div class="demo-v" id="sm-vswr">&mdash;</div></div>
+                <div class="demo-kv"><div class="demo-k">Power delivered</div><div class="demo-v" id="sm-pwr">&mdash;</div></div>
+                <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.45rem;margin-top:.1rem">
+                    <div class="demo-kv">
+                        <div class="demo-k"><span style="display:inline-block;width:9px;height:9px;background:#a78bfa;border-radius:50%;vertical-align:middle;margin-right:4px"></span>Z<sub>in</sub> at d (normalized)</div>
+                        <div class="demo-v" id="sm-zin">&mdash;</div>
+                    </div>
+                </div>
+                <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.45rem;margin-top:.1rem">
+                    <div style="font-size:.62rem;color:var(--g2);font-family:var(--fm);margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.08em">Single-Stub Matching (shunt)</div>
+                    <div class="demo-kv">
+                        <div class="demo-k"><span style="display:inline-block;width:9px;height:9px;background:#34d399;border-radius:50%;vertical-align:middle;margin-right:4px"></span>Stub 1 — d from load</div>
+                        <div class="demo-v" id="sm-s1d">&mdash;</div>
+                    </div>
+                    <div class="demo-kv"><div class="demo-k" style="padding-left:13px">Stub 1 — b to add</div><div class="demo-v" id="sm-s1b">&mdash;</div></div>
+                    <div class="demo-kv">
+                        <div class="demo-k"><span style="display:inline-block;width:9px;height:9px;background:#fbbf24;border-radius:50%;vertical-align:middle;margin-right:4px"></span>Stub 2 — d from load</div>
+                        <div class="demo-v" id="sm-s2d">&mdash;</div>
+                    </div>
+                    <div class="demo-kv"><div class="demo-k" style="padding-left:13px">Stub 2 — b to add</div><div class="demo-v" id="sm-s2b">&mdash;</div></div>
+                </div>
+                <p class="demo-note">Blue &#9679; = Z<sub>nL</sub> &nbsp;&#9632; Red = Y<sub>nL</sub> &nbsp;&#9678; Green = Stub 1 &nbsp;&#9678; Amber = Stub 2 &nbsp;&#10005; Purple = Z<sub>in</sub><br>Dashed circle = VSWR circle. Bottom graph = |V| standing wave.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Antenna Array Demo Modal -->
+<div class="demo-modal" id="arrayModal" onclick="closeArrayDemo(event)">
+    <div class="demo-inner">
+        <button class="demo-close" onclick="closeArrayDemo(event,true)">&#x2715;</button>
+        <div class="demo-title">Antenna Array Polar Plotter</div>
+        <div class="demo-sub">ECE 3317 // Uniform Linear Array Factor in &theta;&nbsp;=&nbsp;90&deg; Plane</div>
+        <div class="demo-ctrl-row">
+            <div class="demo-ctrl">
+                <label>Elements N</label>
+                <input type="number" id="arr-N" value="2" min="2" max="16" step="1" oninput="runArrayDemo()">
+            </div>
+            <div class="demo-ctrl">
+                <label>Spacing d/&lambda;</label>
+                <input type="number" id="arr-d" value="0.5" min="0.05" max="2" step="0.05" oninput="runArrayDemo()">
+            </div>
+            <div class="demo-ctrl">
+                <label>&psi; phase shift (deg)</label>
+                <div class="dual-input-row">
+                    <input type="range" id="arr-psi-sl" min="-180" max="180" value="0" step="5" oninput="document.getElementById('arr-psi').value=this.value;runArrayDemo()">
+                    <input type="number" id="arr-psi" value="0" min="-180" max="180" step="5" oninput="document.getElementById('arr-psi-sl').value=this.value;runArrayDemo()" style="width:68px">
+                    <span class="unit-lbl">°</span>
+                </div>
+            </div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start">
+            <div class="demo-canvas-box" style="flex:0 0 auto">
+                <canvas id="arrayCanvas" width="420" height="420"></canvas>
+            </div>
+            <div class="demo-side-panel" style="flex:1;min-width:180px">
+                <div class="demo-kv"><div class="demo-k">Peak |F|</div><div class="demo-v" id="arr-peak">&mdash;</div></div>
+                <div class="demo-kv"><div class="demo-k">HPBW (&minus;3&thinsp;dB)</div><div class="demo-v" id="arr-hpbw">&mdash;</div></div>
+                <div class="demo-kv"><div class="demo-k">Main beam &phi;</div><div class="demo-v" id="arr-gamma">&mdash;</div></div>
+                <div class="demo-kv"><div class="demo-k">Side lobes</div><div class="demo-v" id="arr-sidelobes">&mdash;</div></div>
+                <p class="demo-note">Array along y-axis. &phi;&nbsp;=&nbsp;0&deg; is the +x direction (broadside). Red dashed lines show the &minus;3&thinsp;dB half-power angles. Numbers on circles show |F| magnitude. HPBW computed by searching from peak as in MATLAB.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
